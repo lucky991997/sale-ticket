@@ -1,0 +1,52 @@
+@use "../../scss/" as *;
+
+.input-search {
+  position: relative;
+  width: 437px;
+  height: 48px;
+  background: $input-color;
+  border-radius: 8px;
+
+
+  input {
+    position: absolute;
+    width: 361px;
+    height: 28px;
+    border: none;
+    background: $input-color;
+    display: flex;
+    align-items: center;
+    color: $txt-black;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+    outline: none;
+    margin: 10px 16px;
+  }
+
+  button {
+    width: 24px;
+    height: 24px;
+    color: black;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background: transparent;
+
+    border: none;
+    width: 24px;
+    cursor: pointer;
+
+    &::after {
+      content: "";
+      width: 55px;
+      height: 48px;
+      position: absolute;
+      background-color: transparent;
+      top: -10px;
+      left: -16px;
+      border-radius: 8px;
+    }
+  }
+}
+

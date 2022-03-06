@@ -1,13 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import 'antd/dist/antd.less'
+import 'antd/dist/antd.css';
+import '../node_modules/font-awesome/css/font-awesome.min.css'; 
+ 
+// import "font-awesome/css/font-awesome.min.css";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+ 
+    <App />,
+ 
   document.getElementById('root')
 );
 

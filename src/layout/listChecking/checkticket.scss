@@ -1,0 +1,9 @@
+@use '../../scss/' as *;
+
+.checkingticket {
+    width: 1097px;
+    &-action {
+        margin-bottom: 24px;
+        @include flex(flex-start, space-between)
+    }
+}

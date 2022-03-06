@@ -1,0 +1,30 @@
+@use "../../scss/" as *;
+
+.chart {
+  padding-right: 23px;
+  &-revenue {
+    margin-top: 40px;
+    &__title {
+      margin: 0;
+      opacity: 50%;
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 500;
+    }
+
+    &__total {
+      margin: 0;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 30px;
+      color: $txt-black;
+
+      span {
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 500;
+        margin-left: -4px;
+      }
+    }
+  }
+}

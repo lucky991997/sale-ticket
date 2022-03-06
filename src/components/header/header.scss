@@ -1,0 +1,67 @@
+@use "../../scss/" as *;
+.header {
+  // @include flex(flex-start, flex-start);
+  position: relative;
+  width: 1567px;
+  margin-bottom: 20px;
+
+  &-search {
+    &__input {
+      background-color: #ede6e6;
+      width: 437px;
+      height: 48px;
+      border-radius: 12px;
+      padding: 10px 16px;
+      border: none;
+      position: relative;
+      outline: none;
+    }
+
+    &__icon {
+    
+    
+      // &::before {
+      //   content: "";
+      //   width: 59px;
+      //   height: 46px;
+      //   background-color: transparent;
+      //   position: absolute;
+      //   top: 2px;
+      //   left: 24%;
+      // }
+    }
+  }
+  &-info {
+    float: right;
+    max-width: 144px;
+    width: 144px;
+    height: 60px;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    &__icon {
+      display: flex;
+      align-items: center;
+      margin-right: 27px;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+
+      i:hover {
+        opacity: 0.7;
+      }
+      &__info {
+        img {
+          height: 48px;
+          width: 48px;
+          border-radius: 30px;
+          margin-left: 27px;
+          transition: opacity 0.2s ease;
+        }
+        img:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}
