@@ -1,24 +1,49 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
+//color main
 $main-bg: #f9f6f4;
 $main-color: #fff;
 
+//color button
 $btn-primary: #FF993C;
 $btn-secondary: #e5e5e5;
+ 
+//color radio
+$radio-primary: #1890ff;
 
+//color inout
 $input-color : #f7f7f8;
 
+//color text
 $txt-gray: gray;
 $txt-white: #fff;   
 $txt-black: #1E0D03;
 $txt-orange:  #FF993C;
 
+
+//color active
 $orange: #ffbb00;
+$white: #fff;
 
 
+
+//color chart
 $chart-orange: #FF8A48;
 $chart-blue: #4F75FF;
 
+
+//status
+$bg-open: #DEF7E0;
+$open: #03AC00;
+
+$bg-end: #F8EBE8;
+$end: #FD5959;
+
+$bg-coming:#EAF1F8 ;
+$coming: #919DBA;
+
+
+//spacing
 $gap-menu: 0 38px;
 $gap-header: 0 27px;
 

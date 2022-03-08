@@ -1,13 +1,18 @@
-import React from "react";
-import { Input, Select, Radio, Space } from "antd";
+import React, { useEffect, useRef, useState } from "react";
+import { Select, Radio, Space } from "antd";
 
-import "./ticketfilter.scss";
-import Calendar from "../calendar/Calendar";
-import Button from "../button/Button";
+import "./filterpackageticket.scss";
+import { Link } from "react-router-dom";
+import Calendar from "../../../components/calendar/Calendar";
+import Button from "../../../components/button/Button";
 
-const TicketFilter = () => {
+type TicketFilterProps = {
+  component: any;
+};
+
+const TicketFilter = ({ component }: TicketFilterProps) => {
   const { Option } = Select;
-
+  const [value, setValue] = useState<number>(component | 0);
   const selectBefore = (
     <Select
       style={{ minWidth: "246px" }}
@@ -18,7 +23,15 @@ const TicketFilter = () => {
       <Option value="online">Online</Option>
     </Select>
   );
+  const radioRef = useRef<HTMLInputElement>(null);
 
+  useEffect(() => {
+    radioRef.current?.focus();
+    setValue(0)
+  }, []);
+  const onChange = (e: any) => {
+    setValue(e.target.value);
+  };
   return (
     <div className="ticketfilter">
       <h1 className="ticketfilter__title">Lọc vé</h1>
@@ -26,11 +39,17 @@ const TicketFilter = () => {
       <div className="ticketfilter-check">
         <h2>Tình trạng đối soát</h2>
         <div className="ticketfilter-check__state">
-          <Radio.Group>
+          <Radio.Group onChange={(e) => onChange(e)} value={value} ref={radioRef}>
             <Space direction="vertical">
-              <Radio value={1}>Tất cả</Radio>
-              <Radio value={2}>Đã đối soát</Radio>
-              <Radio value={3}>Chưa đối soát</Radio>
+              <Link to="/check/listcheck">
+                <Radio value={0}>Tất cả</Radio>
+              </Link>
+              <Link to="/check/checked">
+                <Radio value={1}>Đã đối soát</Radio>
+              </Link>
+              <Link to="/check/ischecked">
+                <Radio value={2}>Chưa đối soát</Radio>
+              </Link>
             </Space>
           </Radio.Group>
         </div>
@@ -55,7 +74,7 @@ const TicketFilter = () => {
         </div>
       </div>
       <div className="ticketfilter-btn">
-        <Button  styles={{ width: "160px" }} variant="secondary" size="XL">
+        <Button styles={{ width: "160px" }} variant="secondary" size="XL">
           Lọc
         </Button>
       </div>

@@ -1,11 +1,9 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Menu } from "antd";
 import {
   HomeOutlined,
-  BarsOutlined,
   ContainerOutlined,
   PicCenterOutlined,
-  DesktopOutlined,
   SettingOutlined,
 } from "@ant-design/icons";
 import "./menus.scss";
@@ -16,43 +14,43 @@ const LeftMenu = () => {
   const menus = [
     {
       title: "Trang Chủ",
-      path: "/home",
+      section: "home",
+      path: "/",
       icon: HomeOutlined,
     },
     {
       title: "Quản lý vé",
+      section: "ticket",
       path: "/ticket",
       icon: PicCenterOutlined,
     },
     {
       title: "Đối soát vé",
+      section: "check",
       path: "/check",
       icon: ContainerOutlined,
     },
-    // {
-    //   title: "Danh sách sự kiện",
-    //   path: "/event",
-    //   icon: BarsOutlined,
-    // },
-    // {
-    //   title: "Quản lý Thiết bị",
-    //   path: "/equiment",
-    //   icon: DesktopOutlined,
-    // },
     {
       title: "Cài đặt",
+      section: "setting",
       path: "/setting",
       icon: SettingOutlined,
     },
   ];
+
   const { pathname } = useLocation();
-  const activeMenu = menus.findIndex((item) => item.path === pathname);
+  const curPath = pathname.split("/")[1]
+  const activeMenu = menus.findIndex((item) => item.section === curPath);
   const menuRef = useRef<MenuItem | any | null>(null);
+  const [active, setActive] = useState(activeMenu);
 
+  useEffect(() => {
+    setActive(curPath.length === 0 ? 0 : activeMenu);
 
-  useEffect(() => {}, []);
+  }, [active, activeMenu, curPath]);
 
   const handleActive = () => {
+    setActive(activeMenu);
     menuRef.current?.classList?.toggle("active");
   };
   return (
@@ -76,26 +74,23 @@ const LeftMenu = () => {
               ref={menuRef}
               onClick={() => handleActive()}
               className={`menus__list__item ${
-                index === activeMenu ? "active" : ""
+                active === index ? "active" : ""
               }`}
-              style={{padding: 0, lineHeight: '56px'}}
+              style={{ padding: 0, lineHeight: "56px" }}
               key={index}
               icon={<item.icon />}
             >
               <Link className="menus__list__item__title" to={item.path}>
                 <span
-                  className={`${
-                    index === activeMenu ? "active-title" : ""
-                  }`}
+                  className={`${active === index ? "active-title" : ""}`}
                 >
                   {item.title}
                 </span>
               </Link>
-          
             </Menu.Item>
           ))}
         </Menu>
-            <span className='menus__list__service'>Gói dịch vụ</span>
+        <span className="menus__list__service">Gói dịch vụ</span>
       </div>
     </div>
   );

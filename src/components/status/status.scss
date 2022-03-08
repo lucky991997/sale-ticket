@@ -1,0 +1,60 @@
+@use "../../scss/" as *;
+
+.status {
+  min-width: 100px;
+  width: 98px;
+  height: 31px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 12px;
+  position: relative;
+  border-radius: 8px;
+  &__open {
+    background-color: $bg-open;
+    border: 1px solid $open;
+  }
+  &__coming {
+    background-color: $bg-coming;
+    border: 1px solid $coming;
+  }
+  &__end {
+    background-color: $bg-end;
+    border: 1px solid $end;
+  }
+
+  &-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    &__open {
+      background-color: $open;
+      border: 1px solid $open;
+    }
+    &__coming {
+      background-color: $coming;
+      border: 1px solid $coming;
+    }
+    &__end {
+      background-color: $end;
+      border: 1px solid $end;
+    }
+  }
+  &-title {
+    margin-left: 8px;
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 500;
+
+    &__open {
+      color: $open;
+    }
+    &__coming {
+      color: $coming;
+    }
+    &__end {
+      color: $end;
+    }
+  }
+}

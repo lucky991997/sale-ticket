@@ -16,14 +16,12 @@
     background-color: $btn-primary;
     border-radius: 8px;
     outline: none;
-    border: none;
     cursor: pointer;
     transition: opacity 0.2s ease-in-out;
-    // text-align: center;
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
     span {
       font-size: 18px;
       line-height: 26px;
@@ -41,13 +39,11 @@
     padding: 11px 24px 11px 24px;
     border-radius: 8px;
     outline: none;
-    border: none;
     cursor: pointer;
     transition: opacity 0.2s ease-in-out;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    
+    justify-content: center;
     border: 1px solid $orange;
     span {
       font-size: 18px;

@@ -4,7 +4,7 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
+  box-sizing: border-box  ;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
 }
@@ -26,6 +26,7 @@ a {
 img {
   max-width: 100%;
 }
+
 .container {
   // width: 100%;
   max-width: 1920px;
@@ -33,6 +34,16 @@ img {
   margin: 0 auto;
   padding: 17px 33px 33px;
 }
+//tiêu đề page
+.main-title {
+  font-size: 36px;
+  line-height: 54px;
+  font-weight: 700;
+  margin-bottom: 32px;
+  color: $txt-black;
+}
+
+// layout 
 .main-layout {
   padding-top: 24px;
   padding-left: 24px;
@@ -42,10 +53,54 @@ img {
   height: 963px;
   border-radius: 24px;
 }
-.main-title {
-  font-size: 36px;
-  line-height: 54px;
+
+// tiêu đề của layout
+.title-layout {
+  font-size: 26px;
+  line-height: 30px;
   font-weight: 700;
-  margin-bottom: 32px;
   color: $txt-black;
+  text-align: center;
+}
+
+//khoảng cách button của layout
+.btn-layout {
+  display: flex;
+  justify-content: center;
+  div:nth-child(2) {
+    margin-left: 24px;
+
+  }
+}
+
+// * color red
+
+.note {
+  color: $end;
+  width: 7px;
+  height: 26px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+}
+
+.note-title{
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: $txt-black;
+  opacity: 0.4;
+  margin-left: 4px;
+  margin-top: 2px;
+
+}
+
+//label title 
+.label-title {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: $txt-black;
+  opacity: 0.7;
+  margin: 0 8px;
 }

@@ -1,0 +1,55 @@
+@use "../../../scss/" as *;
+
+.changedateticket {
+  width: 758px;
+  height: 365px;
+  background-color: $main-color;
+  border-radius: 10px;
+  position: relative;
+  padding: 32px 30px 24px 32px;
+
+  &-code {
+    margin-top: 27px;
+    margin-bottom: 17px;
+
+    @include flex(center, flex-start);
+    h3 {
+      margin-left: 156px;
+    }
+  }
+  &-event {
+    margin-bottom: 20px;
+    @include flex(center, flex-start);
+    h3 {
+      margin-left: 156px;
+    }
+  }
+  &-name {
+    margin-bottom: 24px;
+    @include flex(center, flex-start);
+    h3{
+        margin-left: 106px;
+    }
+  }
+  &-date {
+    margin-bottom: 39px;
+    @include flex(center, flex-start);
+    position: relative;
+  }
+  h2 {
+    @include flex(flex-start, static);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 26px;
+    color: $txt-black;
+    opacity: 0.7;
+    text-align: center;
+  }
+  h3 {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: $txt-black;
+    opacity: 0.7;
+  }
+}

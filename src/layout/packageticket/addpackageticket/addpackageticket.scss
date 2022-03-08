@@ -1,0 +1,50 @@
+@use "../../../scss/" as *;
+
+.addpackaege-ticket {
+  width: 758px;
+  height: 628px;
+  background-color: $main-color;
+  border-radius: 16px;
+  position: relative;
+  padding: 24px 32px;
+  &-name {
+    margin-top: 27px;
+    margin-bottom: 25px;
+  }
+
+  &-date {
+    @include flex(flex-start, flex-start);
+    margin-bottom: 24px;
+    &__start {
+      margin-right: 39px;
+    }
+  }
+  &-price {
+    margin-bottom: 24px;
+    h2 {
+      margin-bottom: 5px;
+    }
+    &__odd, &__combo {
+      @include flex(center, flex-start)
+    }
+    &__combo {
+      margin-top: 12px;
+    }
+  }
+  &-status {
+    margin-bottom: 24px;
+  }
+  h2 {
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 600;
+    color: $txt-black;
+    opacity: 0.7;
+}
+}
+
+.ant-checkbox-inner,
+.ant-checkbox-input {
+  width: 20px ;
+  height: 20px ;
+}
