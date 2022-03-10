@@ -7,8 +7,10 @@
   height: 628px;
   background-color: $main-color;
   border-radius: 16px;
-  position: relative;
+  position: absolute;
   padding: 24px 32px;
+  top: 0;
+  left: 0;
   &-event {
     @include flex (flex-start, flex-start);
     margin-top: 27px;

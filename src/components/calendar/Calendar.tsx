@@ -1,4 +1,4 @@
-import React, { CSSProperties } from "react";
+import React, { Component, CSSProperties, MouseEvent } from "react";
 import { AiTwotoneCalendar } from "react-icons/ai";
 
 import "./calendar.scss";
@@ -10,7 +10,13 @@ type CalendarProps = {
   placeholder?: string;
 };
 
-const Calendar = ({ calendarStyles, styles, iconStyle,placeholder }: CalendarProps) => {
+const Calendar = ({
+  calendarStyles,
+  styles,
+  iconStyle,
+  placeholder,
+  ...rest
+}: CalendarProps) => {
   return (
     <div style={calendarStyles} className="calendar">
       <input style={styles} placeholder={placeholder} />
@@ -21,9 +27,6 @@ const Calendar = ({ calendarStyles, styles, iconStyle,placeholder }: CalendarPro
   );
 };
 
-type TimeProps = {
-
-}
-
+type TimeProps = {};
 
 export default Calendar;

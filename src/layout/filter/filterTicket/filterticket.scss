@@ -1,6 +1,7 @@
 @use "../../../scss/" as *;
 
 .filterticket {
+  z-index: 999;
   width: 634px;
   height: 454px;
   background-color: $white;
@@ -28,12 +29,16 @@
   &-status {
     margin-bottom: 20px;
     &__radio {
+      width: 573px;
       &__title {
         font-weight: 500;
         color: $txt-black;
         font-size: 16px;
         line-height: 20px;
         opacity: 0.7;
+      }
+      .ant-space-item {
+        margin-right: 40px !important;
       }
     }
   }

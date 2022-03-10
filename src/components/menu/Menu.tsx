@@ -6,9 +6,10 @@ import {
   PicCenterOutlined,
   SettingOutlined,
 } from "@ant-design/icons";
-import "./menus.scss";
 import { Link, useLocation } from "react-router-dom";
 import MenuItem from "antd/lib/menu/MenuItem";
+
+import "./menus.scss";
 
 const LeftMenu = () => {
   const menus = [

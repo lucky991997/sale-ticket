@@ -6,7 +6,18 @@ import Button from "../../../components/button/Button";
 import { Input, InputIcon } from "../../../components/input/Input";
 
 import "./updatepackageticket.scss";
-const UpdatePackageTicket = () => {
+
+type UpdatePackageProps = {
+  closeUpdate: any;
+};
+const UpdatePackageTicket = ({ closeUpdate }: UpdatePackageProps) => {
+  const handleCloseUpdate = () => {
+    closeUpdate(false);
+  };
+  const handleAddPackage = () => {
+    alert("Update successful !!!!")
+    closeUpdate(false)
+  }
   const { Option } = Select;
   return (
     <div className="updatepackage-ticket">
@@ -16,13 +27,18 @@ const UpdatePackageTicket = () => {
           <h2 style={{ marginBottom: "5px" }}>
             Mã sự kiện <span className="note">*</span>
           </h2>
-          <Input style={{width: "245px"}} type="text" placeholder="PKG20210502" />
+          <Input
+            style={{ width: "245px" }}
+            type="text"
+            placeholder="PKG20210502"
+          />
         </div>
         <div className="updatepackage-ticket-event__name">
-          <h2 style={{ marginBottom: "5px" }}>
-          Tên sự kiện 
-          </h2>
-          <Input type="text" placeholder="Hội chợ triển lãm hàng tiêu dùng 2021" />
+          <h2 style={{ marginBottom: "5px" }}>Tên sự kiện</h2>
+          <Input
+            type="text"
+            placeholder="Hội chợ triển lãm hàng tiêu dùng 2021"
+          />
         </div>
       </div>
       <div className="updatepackage-ticket-date">
@@ -30,6 +46,7 @@ const UpdatePackageTicket = () => {
           <h2>Ngày áp dụng</h2>
           <div style={{ display: "flex" }}>
             <InputIcon
+              handleClick={() => console.log("123")}
               style={{ marginRight: "9px" }}
               type="text"
               placeholder={"01/04/2021"}
@@ -39,7 +56,11 @@ const UpdatePackageTicket = () => {
               />
             </InputIcon>
 
-            <InputIcon type="text" placeholder={"08:00:00"}>
+            <InputIcon
+              handleClick={() => console.log("123")}
+              type="text"
+              placeholder={"08:00:00"}
+            >
               <AiOutlineClockCircle
                 style={{ color: "#FF993C", width: "20px", height: "20px" }}
               />
@@ -50,6 +71,7 @@ const UpdatePackageTicket = () => {
           <h2>Ngày hết hạn</h2>
           <div style={{ display: "flex" }}>
             <InputIcon
+              handleClick={() => console.log("123")}
               style={{ marginRight: "9px" }}
               type="text"
               placeholder="01/04/2021"
@@ -59,7 +81,11 @@ const UpdatePackageTicket = () => {
               />
             </InputIcon>
 
-            <InputIcon type="text" placeholder="08:00:00">
+            <InputIcon
+              handleClick={() => console.log("123")}
+              type="text"
+              placeholder="08:00:00"
+            >
               <AiOutlineClockCircle
                 style={{ color: "#FF993C", width: "20px", height: "20px" }}
               />
@@ -122,12 +148,22 @@ const UpdatePackageTicket = () => {
 
       <div className="btn-layout">
         <div>
-          <Button style={{ width: "160px" }} variant="secondary" size="XL">
+          <Button
+            onClick={handleCloseUpdate}
+            style={{ width: "160px" }}
+            variant="secondary"
+            size="XL"
+          >
             Hùy
           </Button>
         </div>
         <div>
-          <Button style={{ width: "160px" }} variant="primary" size="XL">
+          <Button
+            onClick={handleAddPackage}
+            style={{ width: "160px" }}
+            variant="primary"
+            size="XL"
+          >
             Lưu
           </Button>
         </div>

@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Select, Radio, Space } from "antd";
 
-import "./filterpackageticket.scss";
 import { Link } from "react-router-dom";
 import Calendar from "../../../components/calendar/Calendar";
 import Button from "../../../components/button/Button";
+
+import "./filterpackageticket.scss";
 
 type TicketFilterProps = {
   component: any;
@@ -27,29 +28,47 @@ const TicketFilter = ({ component }: TicketFilterProps) => {
 
   useEffect(() => {
     radioRef.current?.focus();
-    setValue(0)
-  }, []);
+    if (component !== -1) {
+      setValue(component);
+    } else {
+      setValue(0);
+    }
+  }, [component]);
   const onChange = (e: any) => {
     setValue(e.target.value);
   };
   return (
     <div className="ticketfilter">
       <h1 className="ticketfilter__title">Lọc vé</h1>
-      <div className="ticketfilter__select">{selectBefore}</div>
+      {/* <div className="ticketfilter__select">{selectBefore}</div> */}
       <div className="ticketfilter-check">
         <h2>Tình trạng đối soát</h2>
         <div className="ticketfilter-check__state">
-          <Radio.Group onChange={(e) => onChange(e)} value={value} ref={radioRef}>
+          <Radio.Group
+            onChange={(e) => onChange(e)}
+            value={value}
+            ref={radioRef}
+          >
             <Space direction="vertical">
-              <Link to="/check/listcheck">
-                <Radio value={0}>Tất cả</Radio>
-              </Link>
-              <Link to="/check/checked">
-                <Radio value={1}>Đã đối soát</Radio>
-              </Link>
-              <Link to="/check/ischecked">
-                <Radio value={2}>Chưa đối soát</Radio>
-              </Link>
+              <div style={{ position: "relative" }}>
+                <Link to="/check/listcheck">
+                  <Radio value={0}></Radio>
+                </Link>
+                <span className="title-radio">Tất cả</span>
+              </div>
+              <div style={{ position: "relative" }}>
+                <Link to="/check/checked">
+                  <Radio value={1}></Radio>
+                </Link>
+                <span className="title-radio">Đã đối soát</span>
+              </div>
+
+              <div style={{ position: "relative" }}>
+                <Link to="/check/ischecked">
+                  <Radio value={2}></Radio>
+                </Link>
+                <span className="title-radio">Chưa đối soát</span>
+              </div>
             </Space>
           </Radio.Group>
         </div>

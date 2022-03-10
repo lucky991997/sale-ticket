@@ -3,7 +3,22 @@ import Button from "../../../components/button/Button";
 import Calendar from "../../../components/calendar/Calendar";
 
 import "./changedateticket.scss";
-const ChangeDateTicket = () => {
+type ChangeDateProps = {
+  setChange: any;
+};
+const ChangeDateTicket = ({ setChange }: ChangeDateProps) => {
+  const closeChange = () => {
+    if (typeof setChange === "function") {
+      setChange(false);
+    } else {
+      console.log("is not defound");
+    }
+  };
+
+  const handleChangeTicket = () => {
+    alert("change successful !!!")
+    setChange(false);
+  }
   return (
     <div className="changedateticket">
       <h1 className="title-layout">Đổi ngày sử dụng</h1>
@@ -21,18 +36,26 @@ const ChangeDateTicket = () => {
       </div>
       <div className="changedateticket-date">
         <h2>Hạn sử dụng</h2>
-        <div style={{marginLeft: '96px'}}>
-          <Calendar calendarStyles={{ position: "relative" }} />
+        <div style={{ marginLeft: "96px" }}>
+          <Calendar
+            calendarStyles={{ position: "relative" }}
+            placeholder="15/04/2021"
+          />
         </div>
       </div>
       <div className="btn-layout">
         <div>
-          <Button styles={{ width: "160px" }} variant="secondary" size="XL">
+          <Button
+            onClick={closeChange}
+            styles={{ width: "160px" }}
+            variant="secondary"
+            size="XL"
+          >
             Hủy
           </Button>
         </div>
         <div>
-          <Button styles={{ width: "160px" }} variant="primary" size="XL">
+          <Button onClick={handleChangeTicket} styles={{ width: "160px" }} variant="primary" size="XL">
             Lưu
           </Button>
         </div>

@@ -56,7 +56,7 @@ const LineChart = () => {
   return (
     <div className="linechart">
       <div className="linechart__title">Doanh thu</div>
-      <Calendar/>
+      <Calendar />
       <div className="linechart-chart">
         <Line data={data} options={options} height={298} width={1488}/>
       </div>

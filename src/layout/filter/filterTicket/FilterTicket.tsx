@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Radio, Checkbox, Row, Col } from "antd";
+import { Radio, Checkbox, Row, Col, Space } from "antd";
 
 import Button from "../../../components/button/Button";
 import Calendar from "../../../components/calendar/Calendar";
@@ -30,22 +30,24 @@ const FilterTicket = () => {
         <h2>Tình trạng sử dụng</h2>
         <div className="filterticket-status__radio">
           <Radio.Group onChange={(e) => onChange(e)} value={value}>
-            <Radio value={1}>
-              <span className="filterticket-status__radio__title">Tất cả</span>
-            </Radio>
-            <Radio value={2}>
-              <span className="filterticket-status__radio__title">
-                Đã sử dụng
-              </span>
-            </Radio>
-            <Radio value={3}>
-              <span className="filterticket-status__radio__title">
-                Chưa sử dụng
-              </span>
-            </Radio>
-            <Radio value={4}>
-              <span className="filterticket-status__radio__title">Hết hạn</span>
-            </Radio>
+            <Space direction="horizontal">
+              <div style={{ position: "relative", paddingRight: "40px", width:"82px" }}>
+                <Radio value={1}></Radio>
+                <span className="title-radio">Tất cả</span>
+              </div>
+              <div style={{ position: "relative", paddingRight: "40px", width:"127px" }}>
+                <Radio value={2}></Radio>
+                <span className="title-radio">Đã sử dụng</span>
+              </div>
+              <div style={{ position: "relative", paddingRight: "40px", width:"147px" }}>
+                <Radio value={3}></Radio>
+                <span className="title-radio">Chưa sử dụng</span>
+              </div>
+              <div style={{ position: "relative", paddingRight: "40px", width:"100px" }}>
+                <Radio value={4}></Radio>
+                <span className="title-radio">Hết hạn</span>
+              </div>
+            </Space>
           </Radio.Group>
         </div>
       </div>
@@ -104,9 +106,9 @@ const FilterTicket = () => {
       </div>
       <div className="btn-layout">
         <div>
-        <Button styles={{ width: "160px" }} variant="secondary" size="XL">
-          Lọc
-        </Button>
+          <Button styles={{ width: "160px" }} variant="secondary" size="XL">
+            Lọc
+          </Button>
         </div>
       </div>
     </div>

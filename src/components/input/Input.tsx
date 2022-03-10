@@ -1,4 +1,4 @@
-import React, { ComponentProps, CSSProperties, ReactNode } from "react";
+import React, { ComponentProps, CSSProperties, MouseEvent, ReactNode } from "react";
 import { BsSearch } from "react-icons/bs";
 
 import "./input.scss";
@@ -15,6 +15,7 @@ type InputIconProps = {
   placeholder: string;
   children?: ReactNode;
   styles?: CSSProperties;
+  handleClick: (event: MouseEvent<HTMLButtonElement>) => void;
 } & ComponentProps<"input">;
 
 const InputSearch = ({
@@ -62,12 +63,13 @@ const InputIcon = ({
   placeholder,
   type,
   children,
+  handleClick,
   ...rest
 }: InputIconProps) => {
   return (
     <div className="input-icon">
       <input type={type} placeholder={placeholder} style={styles} {...rest} />
-      <button>{children}</button>
+      <button onClick={(event) => handleClick(event)}>{children}</button>
     </div>
   );
 };

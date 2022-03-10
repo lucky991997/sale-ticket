@@ -6,8 +6,23 @@ import { Input, InputIcon } from "../../../components/input/Input";
 import { AiTwotoneCalendar, AiOutlineClockCircle } from "react-icons/ai";
 
 import "./addpackageticket.scss";
-const AddPackageTicket = () => {
+
+type AddTicketProps = {
+  closeTicket: any;
+};
+
+const AddPackageTicket = ({ closeTicket }: AddTicketProps) => {
   const { Option } = Select;
+
+  const CloseAddTicket = () => {
+    closeTicket(false)
+  };
+
+  const handleAddTicket = () => {
+    alert("Update successful !!!!")
+    closeTicket(false)
+  }
+
   return (
     <div className="addpackaege-ticket">
       <h1 className="title-layout">Thêm gói vé</h1>
@@ -21,7 +36,7 @@ const AddPackageTicket = () => {
         <div className="addpackaege-ticket-date__start">
           <h2>Ngày áp dụng</h2>
           <div style={{ display: "flex" }}>
-            <InputIcon
+            <InputIcon handleClick={() => console.log(123)}
               style={{ marginRight: "9px" }}
               type="text"
               placeholder={"dd/mm/yy"}
@@ -31,7 +46,7 @@ const AddPackageTicket = () => {
               />
             </InputIcon>
 
-            <InputIcon type="text" placeholder={"hh:mm:ss"}>
+            <InputIcon handleClick={() => console.log(123)} type="text" placeholder={"hh:mm:ss"}>
               <AiOutlineClockCircle
                 style={{ color: "#FF993C", width: "20px", height: "20px" }}
               />
@@ -41,7 +56,7 @@ const AddPackageTicket = () => {
         <div className="addpackaege-ticket-date__end">
           <h2>Ngày hết hạn</h2>
           <div style={{ display: "flex" }}>
-            <InputIcon
+            <InputIcon handleClick={() => console.log(123)}
               style={{ marginRight: "9px" }}
               type="text"
               placeholder={"dd/mm/yy"}
@@ -51,7 +66,7 @@ const AddPackageTicket = () => {
               />
             </InputIcon>
 
-            <InputIcon type="text" placeholder={"hh:mm:ss"}>
+            <InputIcon handleClick={() => console.log(123)} type="text" placeholder={"hh:mm:ss"}>
               <AiOutlineClockCircle
                 style={{ color: "#FF993C", width: "20px", height: "20px" }}
               />
@@ -114,12 +129,12 @@ const AddPackageTicket = () => {
 
       <div className="btn-layout">
         <div>
-          <Button style={{width: '160px'}} variant="secondary" size="XL">
+          <Button onClick={() => {CloseAddTicket()}} style={{ width: "160px" }} variant="secondary" size="XL">
             Hùy
           </Button>
         </div>
         <div>
-          <Button style={{width: '160px'}} variant="primary" size="XL">
+          <Button onClick={handleAddTicket} style={{ width: "160px" }} variant="primary" size="XL">
             Lưu
           </Button>
         </div>

@@ -5,7 +5,9 @@
   height: 628px;
   background-color: $main-color;
   border-radius: 16px;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   padding: 24px 32px;
   &-name {
     margin-top: 27px;
@@ -24,8 +26,9 @@
     h2 {
       margin-bottom: 5px;
     }
-    &__odd, &__combo {
-      @include flex(center, flex-start)
+    &__odd,
+    &__combo {
+      @include flex(center, flex-start);
     }
     &__combo {
       margin-top: 12px;
@@ -40,11 +43,11 @@
     font-weight: 600;
     color: $txt-black;
     opacity: 0.7;
-}
+  }
 }
 
 .ant-checkbox-inner,
 .ant-checkbox-input {
-  width: 20px ;
-  height: 20px ;
+  width: 20px;
+  height: 20px;
 }

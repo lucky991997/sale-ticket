@@ -1,9 +1,107 @@
-@use '../../scss/' as *;
+@use "../../scss/" as *;
 
 .checkingticket {
-    width: 1097px;
-    &-action {
-        margin-bottom: 24px;
-        @include flex(flex-start, space-between)
+  width: 1097px;
+  &-action {
+    margin-bottom: 24px;
+    @include flex(flex-start, space-between);
+  }
+  &-list {
+    &__table {
+      width: 1049px;
+      
+      max-height: 624px;
+      &__head {
+        background-color: $tbl-primary;
+        width: 100%;
+        height: 48px;
+        padding: 10px 24px 12px;
+        font-size: 16px;
+        line-height: 26px;
+        font-weight: 600;
+        color: $txt-black;
+        opacity: 0.8;
+        position: relative;
+      }
+      &__content {
+        width: 100%;
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 500;
+        color: $txt-black;
+        opacity: 0.7;
+
+        td {
+          height: 48px !important;
+        }
+
+        &__text {
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 22px;
+          color: $txt-gray;
+          text-align: center;
+        }
+      }
     }
+  }
+}
+
+.ischeckingticket {
+  width: 1097px;
+  &-action {
+    margin-bottom: 24px;
+    @include flex(flex-start, space-between);
+  }
+  &-list {
+    &__table {
+      width: 1049px;
+      height: 624px;
+      &__head {
+        background-color: $tbl-primary;
+        width: 100%;
+        height: 48px;
+        padding: 10px 24px 12px;
+        font-size: 16px;
+        line-height: 26px;
+        font-weight: 600;
+        color: $txt-black;
+        opacity: 0.8;
+        position: relative;
+      }
+      &__content {
+        width: 100%;
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 500;
+        color: $txt-black;
+        opacity: 0.7;
+
+        td {
+          height: 48px !important;
+        }
+
+        &__text {
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 48px;
+          color: $end;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+.bg-primary {
+  background-color: $tbl-primary;
+}
+.bg-secondary {
+  background-color: $tbl-secondary;
+}
+
+.checked {
+  color: $txt-gray;
+}
+.ischecked {
+  color: $end;
 }
