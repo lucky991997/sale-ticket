@@ -125,7 +125,7 @@ const TablePackageListTicket = () => {
                 <td>
                   <span className="packageticket-list__table__content__row">
                     {`${
-                      index + (1 % 2) !== 0
+                      (index + 1) % 2 === 0
                         ? `${(400000).toLocaleString()}`
                         : `${(500000).toLocaleString()}`
                     }`}
@@ -135,7 +135,7 @@ const TablePackageListTicket = () => {
                 <td>
                   <span className="packageticket-list__table__content__row">
                     {`${
-                      index + (1 % 2) !== 0 &&
+                      (index + 1) % 2 === 0 &&
                      ramdom() > 0
                         ? `${(
                             400000 *ramdom()
@@ -143,7 +143,7 @@ const TablePackageListTicket = () => {
                         : `${(
                             500000 *ramdom()
                           ).toLocaleString()}`
-                    }`}
+                    }`} VND
                   </span>
                 </td>
                 <td>

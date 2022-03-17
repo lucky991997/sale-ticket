@@ -18,7 +18,7 @@ export interface Ticket {
 }
  
 export interface TicketState {
-    ticket: Object;
+    ticket: Ticket | null;
     tickets: Array<Ticket>; 
     loading: boolean;
     error: string;

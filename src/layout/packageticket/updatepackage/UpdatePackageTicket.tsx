@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
-import { useSelector } from 'react-redux'
-import { RootState } from '../../../store'
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../store";
 import { Select } from "antd";
 import Checkbox from "antd/lib/checkbox/Checkbox";
 import { AiOutlineClockCircle, AiTwotoneCalendar } from "react-icons/ai";
@@ -11,150 +11,161 @@ import "./updatepackageticket.scss";
 
 type UpdatePackageProps = {
   closeUpdate: any;
- 
 };
 const UpdatePackageTicket = ({ closeUpdate }: UpdatePackageProps) => {
-  const { ticket } = useSelector((state:RootState) => state.ticketReducer)
-
+  const { ticket } = useSelector((state: RootState) => state.ticketReducer);
+  const [code, setCode] = useState('');
   const handleCloseUpdate = () => {
     closeUpdate(false);
   };
   const handleAddPackage = () => {
-    alert("Update successful !!!!")
-    closeUpdate(false)
-  }
+    alert("Update successful !!!!");
+   
+    closeUpdate(false);
+  };
   const { Option } = Select;
   useEffect(() => {
-   
-  },[ticket])
-  console.log(ticket)
-
+    if(ticket){
+    
+    }
+  }, [ticket]);
+  if(ticket) {
+    console.log(ticket.status)
+  }
   return (
     <div className="updatepackage-ticket">
       <h1 className="title-layout">Cập nhật thông tin gói vé</h1>
-      <div className="updatepackage-ticket-event">
-        <div className="updatepackage-ticket-event__code">
-          <h2 style={{ marginBottom: "5px" }}>
-            Mã sự kiện <span className="note">*</span>
-          </h2>
-          <Input
-            style={{ width: "245px" }}
-            type="text"
-            placeholder="PKG20210502"
-          />
-        </div>
-        <div className="updatepackage-ticket-event__name">
-          <h2 style={{ marginBottom: "5px" }}>Tên sự kiện</h2>
-          <Input
-            type="text"
-            placeholder="Hội chợ triển lãm hàng tiêu dùng 2021"
-          />
-        </div>
-      </div>
-      <div className="updatepackage-ticket-date">
-        <div className="updatepackage-ticket-date__start">
-          <h2>Ngày áp dụng</h2>
-          <div style={{ display: "flex" }}>
-            <InputIcon
-              handleClick={() => console.log("123")}
-              style={{ marginRight: "9px" }}
-              type="text"
-              placeholder={"01/04/2021"}
-            >
-              <AiTwotoneCalendar
-                style={{ color: "#FF993C", width: "20px", height: "20px" }}
+      {ticket && (
+        <>
+          <div className="updatepackage-ticket-event">
+            <div className="updatepackage-ticket-event__code">
+              <h2 style={{ marginBottom: "5px" }}>
+                Mã sự kiện <span className="note">*</span>
+              </h2>
+              
+              <Input
+                style={{ width: "245px" }}
+                type="text"
+                handleChange={(event) => console.log(event.target.value)}
+                value={ticket.code}
+                placeholder="PKG20210502"
               />
-            </InputIcon>
-
-            <InputIcon
-              handleClick={() => console.log("123")}
-              type="text"
-              placeholder={"08:00:00"}
-            >
-              <AiOutlineClockCircle
-                style={{ color: "#FF993C", width: "20px", height: "20px" }}
+            </div>
+            <div className="updatepackage-ticket-event__name">
+              <h2 style={{ marginBottom: "5px" }}>Tên sự kiện</h2>
+              <Input
+                type="text"
+                placeholder={ticket.event}
               />
-            </InputIcon>
+            </div>
           </div>
-        </div>
-        <div className="updatepackage-ticket-date__end">
-          <h2>Ngày hết hạn</h2>
-          <div style={{ display: "flex" }}>
-            <InputIcon
-              handleClick={() => console.log("123")}
-              style={{ marginRight: "9px" }}
-              type="text"
-              placeholder="01/04/2021"
-            >
-              <AiTwotoneCalendar
-                style={{ color: "#FF993C", width: "20px", height: "20px" }}
-              />
-            </InputIcon>
+          <div className="updatepackage-ticket-date">
+            <div className="updatepackage-ticket-date__start">
+              <h2>Ngày áp dụng</h2>
+              <div style={{ display: "flex" }}>
+                <InputIcon
+                  handleClick={() => console.log("123")}
+                  style={{ marginRight: "9px" }}
+                  type="text"
+                  placeholder={ticket.useDate}
+                >
+                  <AiTwotoneCalendar
+                    style={{ color: "#FF993C", width: "20px", height: "20px" }}
+                  />
+                </InputIcon>
 
-            <InputIcon
-              handleClick={() => console.log("123")}
-              type="text"
-              placeholder="08:00:00"
-            >
-              <AiOutlineClockCircle
-                style={{ color: "#FF993C", width: "20px", height: "20px" }}
-              />
-            </InputIcon>
+                <InputIcon
+                  handleClick={() => console.log("123")}
+                  type="text"
+                  placeholder={"08:00:00"}
+                >
+                  <AiOutlineClockCircle
+                    style={{ color: "#FF993C", width: "20px", height: "20px" }}
+                  />
+                </InputIcon>
+              </div>
+            </div>
+            <div className="updatepackage-ticket-date__end">
+              <h2>Ngày hết hạn</h2>
+              <div style={{ display: "flex" }}>
+                <InputIcon
+                  handleClick={() => console.log("123")}
+                  style={{ marginRight: "9px" }}
+                  type="text"
+                  placeholder={ticket.startDate}
+                >
+                  <AiTwotoneCalendar
+                    style={{ color: "#FF993C", width: "20px", height: "20px" }}
+                  />
+                </InputIcon>
+
+                <InputIcon
+                  handleClick={() => console.log("123")}
+                  type="text"
+                  placeholder="08:00:00"
+                >
+                  <AiOutlineClockCircle
+                    style={{ color: "#FF993C", width: "20px", height: "20px" }}
+                  />
+                </InputIcon>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div className="updatepackage-ticket-price">
-        <h2>Giá vé áp dụng</h2>
-        <div className="updatepackage-ticket-price__odd">
-          <Checkbox>
-            <span style={{ margin: 0 }} className="label-title">
-              Vé Lẻ (vnd/vé) với giá
-            </span>
-          </Checkbox>
-          <Input
-            style={{ width: "144px", background: "#F1F4F8" }}
-            type="text"
-            placeholder="Giá vé"
-          />
-          <span className="label-title">/vé</span>
-        </div>
-        <div className="updatepackage-ticket-price__combo">
-          <Checkbox>
-            <span style={{ margin: 0 }} className="label-title">
-              Combo vé với giá
-            </span>
-          </Checkbox>
-          <Input
-            style={{ width: "144px", background: "#F1F4F8" }}
-            type="text"
-            placeholder="Giá vé"
-          />
-          <span className="label-title">/</span>
-          <Input
-            style={{ width: "85px", background: "#F1F4F8" }}
-            type="text"
-            placeholder="Giá vé"
-          />
-          <span className="label-title">vé</span>
-        </div>
-      </div>
-      <div className="updatepackage-ticket-status">
-        <h2>Tình trạng</h2>
-        <Select
-          style={{ width: 176 }}
-          placeholder="Đang áp dụng"
-          optionFilterProp="children"
-        >
-          <Option value="1">
-            <span className="label-title">Đang áp dụng</span>
-          </Option>
-        </Select>
-        ,
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <span className="note">*</span>
-          <span className="note-title">Thông tin bắt buộc</span>
-        </div>
-      </div>
+          <div className="updatepackage-ticket-price">
+            <h2>Giá vé áp dụng</h2>
+            <div className="updatepackage-ticket-price__odd">
+              <Checkbox>
+                <span style={{ margin: 0 }} className="label-title">
+                  Vé Lẻ (vnd/vé) với giá
+                </span>
+              </Checkbox>
+              <Input
+                style={{ width: "144px", background: "#F1F4F8" }}
+                type="text"
+                placeholder="Giá vé"
+              />
+              <span className="label-title">/vé</span>
+            </div>
+            <div className="updatepackage-ticket-price__combo">
+              <Checkbox>
+                <span style={{ margin: 0 }} className="label-title">
+                  Combo vé với giá
+                </span>
+              </Checkbox>
+              <Input
+                style={{ width: "144px", background: "#F1F4F8" }}
+                type="text"
+                placeholder="Giá vé"
+              />
+              <span className="label-title">/</span>
+              <Input
+                style={{ width: "85px", background: "#F1F4F8" }}
+                type="text"
+                placeholder="Giá vé"
+              />
+              <span className="label-title">vé</span>
+            </div>
+          </div>
+          <div className="updatepackage-ticket-status">
+            <h2>Tình trạng</h2>
+            <Select
+              style={{ width: 176 }}
+              placeholder={ticket.isCheck === true ? "Đang áp dụng" : 'Đã tắt'}
+              value={ticket.isCheck === true ? "Đang áp dụng" : 'Đã tắt'}
+              optionFilterProp="children"
+            >
+              <Option value="1">
+                <span className="label-title">{ticket.isCheck === true ? "Đang áp dụng" : 'Đã tắt'}</span>
+              </Option>
+            </Select>
+            ,
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <span className="note">*</span>
+              <span className="note-title">Thông tin bắt buộc</span>
+            </div>
+          </div>
+        </>
+      )}
 
       <div className="btn-layout">
         <div>

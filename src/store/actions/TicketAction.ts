@@ -38,7 +38,6 @@ export const showTicket = (): ThunkAction<
               ticketNumber: item.ticketNumber,
               useDate: item.useDate,
             }));
-
             if (ticket.length > 0) {
               dispatch({
                 type: SET_LOADING,
@@ -65,7 +64,7 @@ export const showTicket = (): ThunkAction<
 
 export const getTicket = (
   id: string
-): ThunkAction<void, RootState, undefined, TicketAction> => {
+): ThunkAction<void, RootState, null, TicketAction> => {
   return async (dispatch) => {
     try {
       await storeTicket
@@ -85,21 +84,16 @@ export const getTicket = (
                 status: item.status,
                 ticketNumber: item.ticketNumber,
                 useDate: item.useDate,
-              }))
-              .find((item) => item.code === id);
+              })).find((item) => item.code === id);
             if (ticket) {
-              let test:Ticket = ticket
-              if(test) {
-                dispatch({
-                  type: SET_LOADING,
-                  payload: false,
-                });
-                dispatch({
-                  type: GET_TICKET,
-                  payload: test,
-                });
-              }
-             
+              dispatch({
+                type: SET_LOADING,
+                payload: false,
+              });
+              dispatch({
+                type: GET_TICKET,
+                payload: ticket,
+              });
             }
 
             dispatch({

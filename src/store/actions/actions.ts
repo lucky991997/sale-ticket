@@ -13,7 +13,7 @@ interface ShowTicketAction {
 }
 interface getTicketAction {
   type: typeof GET_TICKET;
-  payload: {};
+  payload: Ticket;
 }
 interface SetLoadingAction {
   type: typeof SET_LOADING;
