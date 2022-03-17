@@ -1,6 +1,8 @@
+import React, { useEffect } from "react";
+import { useSelector } from 'react-redux'
+import { RootState } from '../../../store'
 import { Select } from "antd";
 import Checkbox from "antd/lib/checkbox/Checkbox";
-import React from "react";
 import { AiOutlineClockCircle, AiTwotoneCalendar } from "react-icons/ai";
 import Button from "../../../components/button/Button";
 import { Input, InputIcon } from "../../../components/input/Input";
@@ -9,8 +11,11 @@ import "./updatepackageticket.scss";
 
 type UpdatePackageProps = {
   closeUpdate: any;
+ 
 };
 const UpdatePackageTicket = ({ closeUpdate }: UpdatePackageProps) => {
+  const { ticket } = useSelector((state:RootState) => state.ticketReducer)
+
   const handleCloseUpdate = () => {
     closeUpdate(false);
   };
@@ -19,6 +24,11 @@ const UpdatePackageTicket = ({ closeUpdate }: UpdatePackageProps) => {
     closeUpdate(false)
   }
   const { Option } = Select;
+  useEffect(() => {
+   
+  },[ticket])
+  console.log(ticket)
+
   return (
     <div className="updatepackage-ticket">
       <h1 className="title-layout">Cập nhật thông tin gói vé</h1>

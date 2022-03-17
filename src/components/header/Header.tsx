@@ -1,5 +1,6 @@
 import React from "react";
 import { BsSearch } from "react-icons/bs";
+import {  InputIcon, InputSearch } from "../input/Input";
 
 import "./header.scss";
 
@@ -7,6 +8,7 @@ const Header = () => {
   return (
     <div className="header">
       <div className="header-search">
+  
         <input
           type="text"
           placeholder="Search"

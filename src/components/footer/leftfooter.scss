@@ -5,9 +5,7 @@
 
   position: absolute;
   bottom: 0;
-
   p {
-   
     opacity: 0.5;
     font-size: 14px;
     line-height: 22px;
@@ -22,16 +20,72 @@
     position: relative;
 
     &::after {
-        content: "";
-        
-        position: absolute;
-        width: 13px;
-        height: 13px;
-        border: 1px solid #000;
-        border-radius: 50%;
-        opacity: 0.5;
-        top: 4px;
-        left: -4px;
+      content: "";
+
+      position: absolute;
+      width: 13px;
+      height: 13px;
+      border: 1px solid #000;
+      border-radius: 50%;
+      opacity: 0.5;
+      top: 4px;
+      left: -4px;
     }
   }
+}
+.ant-picker-header {
+  margin: 24px auto 20px 32px;
+  border: none !important; 
+  width: 182px;
+  height: 26px;
+  
+}
+.ant-picker-date-panel,
+.ant-picker-week-panel
+{
+  height: 396px;
+  width: 370px !important;
+  background: #ffffff;
+  box-shadow: 4px 4px 45px rgba(109, 46, 0, 0.35);
+  border-radius: 20px;
+  display: block;
+}
+
+
+.ant-picker-header-super-next-btn,
+.ant-picker-header-super-prev-btn {
+  display: none;
+}
+.ant-picker-cell-week {
+
+  visibility: hidden !important;
+}
+
+.ant-picker-content th {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  color: $txt-orange !important;
+  margin-bottom: 16px;
+}
+
+.ant-picker-week-panel-row-selected td {
+  background: #ffd2a8 !important;
+}
+.ant-picker-week-panel-row-selected td:nth-child(2) {
+  background-color: #ffba7b !important;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  position: relative;
+}
+.ant-picker-week-panel-row-selected td:nth-child(8) {
+  background-color: #ffba7b !important;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+.ant-picker-cell-in-view.ant-picker-cell-today .ant-picker-cell-inner::before {
+  display: none;
+}
+.ant-picker-footer {
+  display: none;
 }

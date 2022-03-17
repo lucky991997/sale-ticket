@@ -80,7 +80,7 @@ const TicketFilter = ({ component }: TicketFilterProps) => {
       <div className="ticketfilter-start-date">
         <h2>Từ ngày</h2>
         <div className="ticketfilter-start-date__calendar">
-          <Calendar
+          <Calendar placeholder="01/05/2021"
             styles={{ width: "192px", backgroundColor: "#E0E0E0" }}
             iconStyle={{ color: "#A5Abb1" }}
           />
@@ -89,7 +89,7 @@ const TicketFilter = ({ component }: TicketFilterProps) => {
       <div className="ticketfilter-end-date">
         <h2>Đến ngày</h2>
         <div className="ticketfilter-end-date__calendar">
-          <Calendar styles={{ width: "192px" }} />
+          <Calendar  placeholder="dd/mm/yy" styles={{ width: "192px" }} />
         </div>
       </div>
       <div className="ticketfilter-btn">

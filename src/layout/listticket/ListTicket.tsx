@@ -3,13 +3,14 @@ import { FiFilter } from "react-icons/fi";
 import { InputSearch } from "../../components/input/Input";
 import { Modal } from "antd";
 
+
+
 import Button from "../../components/button/Button";
-import Status from "../../components/status/Status";
-import TableListTicket from "../../components/tablelistticket/TableListTicket";
 import FilterTicket from "../filter/filterTicket/FilterTicket";
 import ChangeDateTicket from "./changedate/ChangeDateTicket";
 
 import "./listticket.scss";
+import TableListTicket from "../../components/table/tableTicket/ListTicket";
 
 const ListTicket = () => {
   const [filterTicket, setFilterTicket] = useState(false);
@@ -49,8 +50,8 @@ const ListTicket = () => {
             </Button>
           </div>
         </div>
-        <TableListTicket />
-        <Status variant="open">Đang mở</Status>
+       
+        <TableListTicket/>
       </div>
       {filterTicket && (
         <Modal onCancel={() => setFilterTicket(false)} visible={filterTicket}>

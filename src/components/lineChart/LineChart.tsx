@@ -1,17 +1,11 @@
 import React from "react";
-import { AiTwotoneCalendar } from "react-icons/ai";
-import { Line, Bar } from "react-chartjs-2";
+
+import { Line } from "react-chartjs-2";
 
 
 import {
   Chart as ChartJS,
   CategoryScale,
-  LinearScale,
-  PointElement,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
 } from "chart.js";
 
 import Chart from "chart.js/auto";
@@ -56,7 +50,7 @@ const LineChart = () => {
   return (
     <div className="linechart">
       <div className="linechart__title">Doanh thu</div>
-      <Calendar />
+      <Calendar placeholder="Tháng 4, 2021" />
       <div className="linechart-chart">
         <Line data={data} options={options} height={298} width={1488}/>
       </div>

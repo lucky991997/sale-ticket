@@ -1,17 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux'
+
 import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'antd/dist/antd.less'
 import 'antd/dist/antd.css';
 import '../node_modules/font-awesome/css/font-awesome.min.css'; 
+
+import './config/firebaseConfig'
+import store from'./store'
  
-// import "font-awesome/css/font-awesome.min.css";
+
 
 ReactDOM.render(
- 
-    <App />,
+  <Provider store={store}>
+
+
+    <App />
+
+  </Provider>,
  
   document.getElementById('root')
 );

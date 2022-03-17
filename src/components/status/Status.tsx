@@ -11,7 +11,7 @@ type StatusProps = {
 const Status = ({variant, children, styles} : StatusProps) => {
   return (
     <div className="test">
-      <div className={`status status__${variant}` }>
+      <div className={`status status__${variant}` } style={styles}>
         <span className={`status-dot status-dot__${variant}`}></span>
         <span className={`status-title status-title__${variant}`}>{children}</span>
       </div>

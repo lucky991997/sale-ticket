@@ -1,0 +1,42 @@
+@use "../../../scss/" as *;
+
+.listticket {
+  &-list {
+    width: 1516px;
+    max-height: 635px;
+    overflow-y: hidden;
+
+    &__table {
+      width: 1516px;
+      height: 56px;
+      background-color: $tbl-primary;
+      &__head {
+        height: 56px;
+        font-size: 16px;
+        line-height: 26px;
+        font-weight: 600;
+        color: $txt-black;
+      }
+      &__content {
+        height: 52px;
+        font-size: 14px;
+        line-height: 17px;
+        font-weight: 500;
+        color: $txt-gray;
+        opacity: 0.7;
+
+        &__start-date {
+          @include flex(flex-end, static);
+          flex-direction: column;
+          margin-top: 8px;
+        }
+
+        &__end-date {
+          @include flex(flex-end, static);
+          flex-direction: column;
+          margin-top: 8px;
+        }
+      }
+    }
+  }
+}

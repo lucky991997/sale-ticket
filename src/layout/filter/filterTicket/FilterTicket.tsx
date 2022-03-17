@@ -19,11 +19,11 @@ const FilterTicket = () => {
       <div className="filterticket-date">
         <div className="filterticket-date__start">
           <h2>Từ ngày</h2>
-          <Calendar calendarStyles={{ position: "relative" }} />
+          <Calendar placeholder="01/04/2022" calendarStyles={{ position: "relative" }} />
         </div>
         <div className="filterticket-date__end">
           <h2>Đến ngày</h2>
-          <Calendar calendarStyles={{ position: "relative" }} />
+          <Calendar placeholder="01/04/2022" calendarStyles={{ position: "relative" }} />
         </div>
       </div>
       <div className="filterticket-status">
