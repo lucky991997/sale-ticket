@@ -15,14 +15,15 @@ const AddPackageTicket = ({ closeTicket }: AddTicketProps) => {
   const { Option } = Select;
 
   const CloseAddTicket = () => {
-    closeTicket(false)
+    closeTicket(false);
   };
 
   const handleAddTicket = () => {
-    alert("Update successful !!!!")
-    closeTicket(false)
-  }
+    alert("Update successful !!!!");
+    closeTicket(false);
+  };
 
+  const status = ["Đang áp dụng", "Đã tắt", "Đang mở"];
   return (
     <div className="addpackaege-ticket">
       <h1 className="title-layout">Thêm gói vé</h1>
@@ -36,7 +37,8 @@ const AddPackageTicket = ({ closeTicket }: AddTicketProps) => {
         <div className="addpackaege-ticket-date__start">
           <h2>Ngày áp dụng</h2>
           <div style={{ display: "flex" }}>
-            <InputIcon handleClick={() => console.log(123)}
+            <InputIcon
+              handleClick={() => console.log(123)}
               style={{ marginRight: "9px" }}
               type="text"
               placeholder={"dd/mm/yy"}
@@ -46,7 +48,11 @@ const AddPackageTicket = ({ closeTicket }: AddTicketProps) => {
               />
             </InputIcon>
 
-            <InputIcon handleClick={() => console.log(123)} type="text" placeholder={"hh:mm:ss"}>
+            <InputIcon
+              handleClick={() => console.log(123)}
+              type="text"
+              placeholder={"hh:mm:ss"}
+            >
               <AiOutlineClockCircle
                 style={{ color: "#FF993C", width: "20px", height: "20px" }}
               />
@@ -56,7 +62,8 @@ const AddPackageTicket = ({ closeTicket }: AddTicketProps) => {
         <div className="addpackaege-ticket-date__end">
           <h2>Ngày hết hạn</h2>
           <div style={{ display: "flex" }}>
-            <InputIcon handleClick={() => console.log(123)}
+            <InputIcon
+              handleClick={() => console.log(123)}
               style={{ marginRight: "9px" }}
               type="text"
               placeholder={"dd/mm/yy"}
@@ -66,7 +73,11 @@ const AddPackageTicket = ({ closeTicket }: AddTicketProps) => {
               />
             </InputIcon>
 
-            <InputIcon handleClick={() => console.log(123)} type="text" placeholder={"hh:mm:ss"}>
+            <InputIcon
+              handleClick={() => console.log(123)}
+              type="text"
+              placeholder={"hh:mm:ss"}
+            >
               <AiOutlineClockCircle
                 style={{ color: "#FF993C", width: "20px", height: "20px" }}
               />
@@ -87,7 +98,7 @@ const AddPackageTicket = ({ closeTicket }: AddTicketProps) => {
             type="text"
             placeholder="Giá vé"
           />
-          <span className="label-title">/vé</span>
+          <span className="label-title">/ vé</span>
         </div>
         <div className="addpackaege-ticket-price__combo">
           <Checkbox>
@@ -116,9 +127,12 @@ const AddPackageTicket = ({ closeTicket }: AddTicketProps) => {
           placeholder="Đang áp dụng"
           optionFilterProp="children"
         >
-          <Option value="1">
-            <span className="label-title">Đang áp dụng</span>
-          </Option>
+          {status.length > 0 &&
+            status.map((item, index) => (
+              <Option key={index} value={item}>
+                <span className="label-title">{item}</span>
+              </Option>
+            ))}
         </Select>
         ,
         <div style={{ display: "flex", alignItems: "center" }}>
@@ -126,15 +140,27 @@ const AddPackageTicket = ({ closeTicket }: AddTicketProps) => {
           <span className="note-title">Thông tin bắt buộc</span>
         </div>
       </div>
-
+              
       <div className="btn-layout">
         <div>
-          <Button onClick={() => {CloseAddTicket()}} style={{ width: "160px" }} variant="secondary" size="XL">
+          <Button
+            onClick={() => {
+              CloseAddTicket();
+            }}
+            style={{ width: "160px" }}
+            variant="secondary"
+            size="XL"
+          >
             Hùy
           </Button>
         </div>
         <div>
-          <Button onClick={handleAddTicket} style={{ width: "160px" }} variant="primary" size="XL">
+          <Button
+            onClick={handleAddTicket}
+            style={{ width: "160px" }}
+            variant="primary"
+            size="XL"
+          >
             Lưu
           </Button>
         </div>

@@ -21,31 +21,23 @@ export const showTicket = (): ThunkAction<
 > => {
   return async (dispatch) => {
     try {
-      await storeTicket
-        .get()
-        .then(
+      await storeTicket.get().then(
           (
             snapshot: firebase.firestore.QuerySnapshot<firebase.firestore.DocumentData>
           ) => {
             const data = snapshot.docs.map((doc) => ({ ...doc.data() }));
             const ticket = data.map((item) => ({
-              code: item.code,
-              event: item.event,
-              isCheck: item.isCheck,
-              port: item.port,
-              startDate: item.startDate,
-              status: item.status,
-              ticketNumber: item.ticketNumber,
-              useDate: item.useDate,
+             ...item
             }));
             if (ticket.length > 0) {
+              const ticketData =  ticket as Ticket[]
               dispatch({
                 type: SET_LOADING,
                 payload: false,
               });
               dispatch({
                 type: SHOW_TICKET,
-                payload: ticket,
+                payload: ticketData,
               });
             } else {
               dispatch({
@@ -53,6 +45,7 @@ export const showTicket = (): ThunkAction<
                 payload: "load data fail!!!",
               });
             }
+          
           }
         )
         .catch((err) => console.log(err));
@@ -74,25 +67,19 @@ export const getTicket = (
             snapshot: firebase.firestore.QuerySnapshot<firebase.firestore.DocumentData>
           ) => {
             const data = snapshot.docs.map((doc) => ({ ...doc.data() }));
+
             let ticket = data
-              .map((item) => ({
-                code: item.code,
-                event: item.event,
-                isCheck: item.isCheck,
-                port: item.port,
-                startDate: item.startDate,
-                status: item.status,
-                ticketNumber: item.ticketNumber,
-                useDate: item.useDate,
+              .map((item) => ({...item
               })).find((item) => item.code === id);
             if (ticket) {
+              const ticketData = ticket as Ticket
               dispatch({
                 type: SET_LOADING,
                 payload: false,
               });
               dispatch({
                 type: GET_TICKET,
-                payload: ticket,
+                payload: ticketData,
               });
             }
 
@@ -108,3 +95,22 @@ export const getTicket = (
     }
   };
 };
+// export const getTicket = (id :string ): ThunkAction<void, RootState, unknown, TicketAction> => {
+//   return async dispatch => {
+//     try{
+//       const ticket = await storeTicket.doc(id).get()
+//       if(ticket.exists) {
+//         const ticketData = ticket.data() as Ticket
+        
+//         dispatch({
+//           type: GET_TICKET,
+//           payload: ticketData
+//         })
+//       }
+//       console.log(ticketData)
+     
+//     }catch (err){
+
+//     }
+//   }
+// }

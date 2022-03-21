@@ -17,7 +17,7 @@ type InputIconProps = {
   children?: ReactNode;
   styles?: CSSProperties;
   handleClick: (event: MouseEvent<HTMLButtonElement>) => void;
- 
+  handleChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 } & ComponentProps<"input">;
 
 const InputSearch = ({
@@ -67,11 +67,12 @@ const InputIcon = ({
   type,
   children,
   handleClick,
+  handleChange,
   ...rest
 }: InputIconProps) => {
   return (
     <div className="input-icon">
-      <input type={type} placeholder={placeholder} style={styles} {...rest} />
+      <input type={type} placeholder={placeholder} style={styles} {...rest}  onChange={handleChange}/>
       <button onClick={(event) => handleClick(event)}>{children}</button>
     </div>
   );

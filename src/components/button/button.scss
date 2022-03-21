@@ -1,6 +1,7 @@
 @use "../../scss/" as *;
 
 .btn {
+  position: relative;
   &-XL {
     width: 119px;
     min-width: 119px;
@@ -50,6 +51,8 @@
       line-height: 26px;
       font-weight: 700;
       color: $txt-orange;
+      display: flex;
+      align-items:center;
     }
     &:hover {
       opacity: 0.7;

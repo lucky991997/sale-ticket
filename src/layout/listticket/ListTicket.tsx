@@ -14,14 +14,12 @@ import TableListTicket from "../../components/table/tableTicket/ListTicket";
 
 const ListTicket = () => {
   const [filterTicket, setFilterTicket] = useState(false);
-  const [changeTicket, setChangeTicket] = useState(false);
+
 
   const showfilter = () => {
     setFilterTicket(true);
   };
-  const showChangeDate = () => {
-    setChangeTicket(true);
-  };
+ 
   return (
     <div className="main-layout">
       <div className="listticket">
@@ -33,16 +31,14 @@ const ListTicket = () => {
               onClick={() => showfilter()}
               variant="secondary"
               size="XL"
-              style={{ width: "132px", paddingLeft: "18px" }}
+              style={{ width: "134px", paddingLeft: "18px" }}
             >
               <FiFilter style={{ marginRight: "7px", width: "20px" }} />
               Lọc vé
             </Button>
             <Button
-              onClick={() => {
-                showChangeDate();
-              }}
-              style={{ minWidth: "182px", marginLeft: "12px" }}
+             
+              style={{ minWidth: "184px", marginLeft: "12px" }}
               variant="secondary"
               size="XL"
             >
@@ -54,16 +50,12 @@ const ListTicket = () => {
         <TableListTicket/>
       </div>
       {filterTicket && (
-        <Modal onCancel={() => setFilterTicket(false)} visible={filterTicket}>
+        <Modal style={{padding:'10px'}} onCancel={() => setFilterTicket(false)} visible={filterTicket}>
           <FilterTicket />
         </Modal>
       )}
 
-      {changeTicket && (
-        <Modal onCancel={() => setChangeTicket(false)} visible={changeTicket}>
-          <ChangeDateTicket setChange={setChangeTicket} />
-        </Modal>
-      )}
+   
     </div>
   );
 };

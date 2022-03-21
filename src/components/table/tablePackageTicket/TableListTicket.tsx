@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { Modal } from "antd";
+import { BiEdit } from "react-icons/bi";
 
 import { css } from "@emotion/react";
 import BeatLoader from "react-spinners/BeatLoader";
@@ -14,8 +15,8 @@ import Button from "../../button/Button";
 import Status from "../../status/Status";
 
 import "./tablelistticket.scss";
+import { formatDate } from "../tableTicket/ListTicket";
 const TablePackageListTicket = () => {
-
   const time = new Date();
   const override = css`
     text-align: center;
@@ -32,22 +33,19 @@ const TablePackageListTicket = () => {
 
   useEffect(() => {
     dispatch(showTicket());
-  
-  }, [dispatch, loading]);
-
-  const handleShowUpdate = (id:string) => {
-    dispatch(getTicket(id))
+  }, [dispatch, loading, ticket]);
+  const handleShowUpdate = (id: string) => {
+    dispatch(getTicket(id));
     setUpdatePackage(true);
   };
   const ramdom = () => {
-      let number = Math.floor(Math.random() * 10) 
-      if (number > 0) {
-          return number
-      }else {
-        return number = 1
-      }
-  }
- 
+    let number = Math.floor(Math.random() * 10);
+    if (number > 0) {
+      return number;
+    } else {
+      return (number = 1);
+    }
+  };
   return (
     <div className="packageticket-list">
       <BeatLoader color={color} loading={loading} css={override} size={150} />
@@ -102,10 +100,12 @@ const TablePackageListTicket = () => {
                     className="packageticket-list__table__content__start-date"
                   >
                     <span className="packageticket-list__table__content__row">
-                      {item.startDate}
+                      {item.startDate
+                        ? item.startDate
+                        : formatDate(time, "dd/mm/yy")}
                     </span>
                     <span className="packageticket-list__table__content__row">
-                      {time.toLocaleTimeString()}
+                      {time.toLocaleTimeString().split(" ")[0]}
                     </span>
                   </div>
                 </td>
@@ -118,7 +118,7 @@ const TablePackageListTicket = () => {
                       {item.useDate}
                     </span>
                     <span className="packageticket-list__table__content__row">
-                      {time.toLocaleTimeString()}
+                      {time.toLocaleTimeString().split(" ")[0]}
                     </span>
                   </div>
                 </td>
@@ -135,15 +135,11 @@ const TablePackageListTicket = () => {
                 <td>
                   <span className="packageticket-list__table__content__row">
                     {`${
-                      (index + 1) % 2 === 0 &&
-                     ramdom() > 0
-                        ? `${(
-                            400000 *ramdom()
-                          ).toLocaleString()}`
-                        : `${(
-                            500000 *ramdom()
-                          ).toLocaleString()}`
-                    }`} VND
+                      (index + 1) % 2 === 0 && ramdom() > 0
+                        ? `${(400000 * ramdom()).toLocaleString()}`
+                        : `${(500000 * ramdom()).toLocaleString()}`
+                    }`}{" "}
+                    VND
                   </span>
                 </td>
                 <td>
@@ -164,12 +160,19 @@ const TablePackageListTicket = () => {
                 </td>
                 <td>
                   <span>
+                 
                     <Button
                       onClick={() => handleShowUpdate(item.code)}
                       size="M"
                       variant="secondary"
+                      style={{border:'none'}}
+                      className={`${((index+1) % 2 === 0 ? `btn-secondary bg-primary` : `btn-secondary`)}`}
                     >
-                      Cập nhật
+                     <BiEdit 
+                     style= {{marginRight: '4px'}}
+                     />
+                      <span style={{fontWeight: 500}}>Cập nhật </span>
+                      
                     </Button>
                   </span>
                 </td>

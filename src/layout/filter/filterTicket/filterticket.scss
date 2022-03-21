@@ -8,7 +8,7 @@
   border-radius: 16px;
   position: relative;
   padding: 24px 30px 24px 32px;
-
+  margin: 100px -26px;
   &-date {
     position: relative;
     @include flex(flex-start, flex-start);
@@ -37,9 +37,6 @@
         line-height: 20px;
         opacity: 0.7;
       }
-      .ant-space-item {
-        margin-right: 40px !important;
-      }
     }
   }
   &-check {
@@ -65,7 +62,7 @@
 }
 
 .ant-radio-inner {
-  width: 18px !important;
-  height: 18px !important;
+  width: 24px !important;
+  height: 24px !important;
   border-color: $radio-primary !important;
 }

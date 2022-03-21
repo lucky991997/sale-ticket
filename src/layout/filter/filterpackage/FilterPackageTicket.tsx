@@ -1,19 +1,36 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Select, Radio, Space } from "antd";
 
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Calendar from "../../../components/calendar/Calendar";
 import Button from "../../../components/button/Button";
 
 import "./filterpackageticket.scss";
 
 type TicketFilterProps = {
-  component: any;
+  component: number;
 };
 
 const TicketFilter = ({ component }: TicketFilterProps) => {
+  const data = [
+    {
+      title: "Tất cả",
+      path: "/listcheck",
+      section: "listcheck",
+    },
+    {
+      title: "Đã đối soát",
+      path: "/checked",
+      section: "checked",
+    },
+    {
+      title: "Chưa đối soát",
+      path: "/ischecked",
+      section: "ischecked",
+    },
+  ];
   const { Option } = Select;
-  const [value, setValue] = useState<number>(component | 0);
+  const [value, setValue] = useState(component);
   const selectBefore = (
     <Select
       style={{ minWidth: "246px" }}
@@ -24,19 +41,19 @@ const TicketFilter = ({ component }: TicketFilterProps) => {
       <Option value="online">Online</Option>
     </Select>
   );
-  const radioRef = useRef<HTMLInputElement>(null);
 
+  const { pathname } = useLocation();
+
+  const [index, setIndex] = useState<number | boolean>(0);
+  const navigate = useNavigate();
   useEffect(() => {
-    radioRef.current?.focus();
-    if (component !== -1) {
-      setValue(component);
-    } else {
-      setValue(0);
-    }
-  }, [component]);
-  const onChange = (e: any) => {
-    setValue(e.target.value);
+    setValue(component === -1 ? 0 : component); 
+  }, [component, index, pathname, navigate]);
+
+  const onChange = (e: any, index: number) => {
+    setIndex(e.target.value);
   };
+
   return (
     <div className="ticketfilter">
       <h1 className="ticketfilter__title">Lọc vé</h1>
@@ -44,31 +61,22 @@ const TicketFilter = ({ component }: TicketFilterProps) => {
       <div className="ticketfilter-check">
         <h2>Tình trạng đối soát</h2>
         <div className="ticketfilter-check__state">
-          <Radio.Group
-            onChange={(e) => onChange(e)}
-            value={value}
-            ref={radioRef}
-          >
+          <Radio.Group value={value}>
             <Space direction="vertical">
-              <div style={{ position: "relative" }}>
-                <Link to="/check/listcheck">
-                  <Radio value={0}></Radio>
-                </Link>
-                <span className="title-radio">Tất cả</span>
-              </div>
-              <div style={{ position: "relative" }}>
-                <Link to="/check/checked">
-                  <Radio value={1}></Radio>
-                </Link>
-                <span className="title-radio">Đã đối soát</span>
-              </div>
-
-              <div style={{ position: "relative" }}>
-                <Link to="/check/ischecked">
-                  <Radio value={2}></Radio>
-                </Link>
-                <span className="title-radio">Chưa đối soát</span>
-              </div>
+              {data.length > 0 &&
+                data.map((item, index) => (
+                  <div key={index} style={{ position: "relative" }}>
+                    <Link to={`/check${item.path}`}>
+                      <Radio
+                        onChange={(e) => {
+                          onChange(e, index);
+                        }}
+                        value={index}
+                      ></Radio>
+                    </Link>
+                    <span className="title-radio">{item.title}</span>
+                  </div>
+                ))}
             </Space>
           </Radio.Group>
         </div>
@@ -80,7 +88,8 @@ const TicketFilter = ({ component }: TicketFilterProps) => {
       <div className="ticketfilter-start-date">
         <h2>Từ ngày</h2>
         <div className="ticketfilter-start-date__calendar">
-          <Calendar placeholder="01/05/2021"
+          <Calendar
+            placeholder="01/05/2021"
             styles={{ width: "192px", backgroundColor: "#E0E0E0" }}
             iconStyle={{ color: "#A5Abb1" }}
           />
@@ -89,14 +98,15 @@ const TicketFilter = ({ component }: TicketFilterProps) => {
       <div className="ticketfilter-end-date">
         <h2>Đến ngày</h2>
         <div className="ticketfilter-end-date__calendar">
-          <Calendar  placeholder="dd/mm/yy" styles={{ width: "192px" }} />
+          <Calendar placeholder="dd/mm/yy" styles={{ width: "192px" }} />
         </div>
       </div>
       <div className="ticketfilter-btn">
-        <Button styles={{ width: "160px" }} variant="secondary" size="XL">
+        <Button style={{ width: "160px" }} variant="secondary" size="XL">
           Lọc
         </Button>
       </div>
+
     </div>
   );
 };

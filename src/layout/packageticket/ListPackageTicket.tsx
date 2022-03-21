@@ -4,7 +4,7 @@ import { InputSearch } from "../../components/input/Input";
 import { Modal } from "antd";
 import AddPackageTicket from "./addpackageticket/AddPackageTicket";
 
-import "./listpackagemodal.scss";
+
 import TablePackageListTicket from "../../components/table/tablePackageTicket/TableListTicket";
 
 
@@ -21,7 +21,7 @@ const ListPackageTicket = () => {
           <InputSearch inputType="text" placeholder="Tìm bằng số vé" />
           <div className="listticket-action__btn">
             <Button
-              style={{ minWidth: "182px", marginRight: "24px" }}
+              style={{ minWidth: "184px", marginRight: "24px" }}
               variant="secondary"
               size="XL"
             >

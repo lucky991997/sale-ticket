@@ -144,3 +144,29 @@ input[type='radio'], input[type='checkbox'] {
   position: absolute;
   top: 4px;
 }
+// modal
+.ant-modal-footer {
+  display: none;
+}
+.ant-modal-body {
+  padding: 0 !important;
+}
+.ant-modal-content {
+  height: 0 !important;
+  width: 0px !important;
+  border-radius: 16px !important;
+  background-color: none !important;
+  box-shadow: none !important;
+}
+.ant-modal-close {
+  display: none;
+}
+.ant-checkbox-inner,
+.ant-checkbox-input {
+  width: 20px ;
+  height: 20px ;
+}
+//menu 
+.ant-menu-vertical, .ant-menu-vertical-left {
+  border: none !important;
+}
