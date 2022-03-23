@@ -15,7 +15,7 @@ const Header = () => {
           className="header-search__input"
         />
 
-        <button className="header-search__icon">
+        {/* <button className="header-search__icon">
           <BsSearch
             onClick={() => console.log(13123)}
             style={{
@@ -27,7 +27,7 @@ const Header = () => {
               cursor: "pointer",
             }}
           />
-        </button>
+        </button> */}
       </div>
       <div className="header-info">
         <div className="header-info__icon">

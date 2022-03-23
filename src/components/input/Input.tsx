@@ -1,4 +1,10 @@
-import React, { ChangeEvent, ComponentProps, CSSProperties, MouseEvent, ReactNode } from "react";
+import React, {
+  ChangeEvent,
+  ComponentProps,
+  CSSProperties,
+  MouseEvent,
+  ReactNode,
+} from "react";
 import { BsSearch } from "react-icons/bs";
 
 import "./input.scss";
@@ -47,9 +53,14 @@ const InputSearch = ({
   );
 };
 
-const Input = ({ styles, placeholder,  handleChange, type, ...rest }: InputProps) => {
+const Input = ({
+  styles,
+  placeholder,
+  handleChange,
+  type,
+  ...rest
+}: InputProps) => {
   return (
-
     <input
       type={type}
       className="input"
@@ -71,8 +82,13 @@ const InputIcon = ({
   ...rest
 }: InputIconProps) => {
   return (
-    <div className="input-icon">
-      <input type={type} placeholder={placeholder} style={styles} {...rest}  onChange={handleChange}/>
+    <div style={styles} className="input-icon">
+      <input
+        type={type}
+        placeholder={placeholder}
+        {...rest}
+        onChange={handleChange}
+      />
       <button onClick={(event) => handleClick(event)}>{children}</button>
     </div>
   );

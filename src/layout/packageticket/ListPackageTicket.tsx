@@ -6,6 +6,7 @@ import AddPackageTicket from "./addpackageticket/AddPackageTicket";
 
 
 import TablePackageListTicket from "../../components/table/tablePackageTicket/TableListTicket";
+import Pagination from "../../components/pagination/Pagination";
 
 
 const ListPackageTicket = () => {
@@ -40,6 +41,7 @@ const ListPackageTicket = () => {
           </div>
         </div>
         <TablePackageListTicket />
+        
         {addPackage && (
           <div className="package-modal">
             <Modal onCancel={() => setAddPackage(false)} visible={addPackage}>

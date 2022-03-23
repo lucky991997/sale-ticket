@@ -2,11 +2,13 @@
 
 .checkingticket {
   width: 1097px;
+ 
   &-action {
     margin-bottom: 24px;
     @include flex(flex-start, space-between);
   }
   &-list {
+    min-height: 624px;
     &__table {
       width: 1049px;
       
@@ -49,7 +51,7 @@
 
 .ischeckingticket {
   width: 1097px;
-  max-height: 624px;
+  min-height: 624px;
   &-action {
     margin-bottom: 24px;
     @include flex(flex-start, space-between);

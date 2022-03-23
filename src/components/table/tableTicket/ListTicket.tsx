@@ -13,6 +13,7 @@ import "./listticket.scss";
 import { getTicket, showTicket } from "../../../store/actions/TicketAction";
 import { Modal } from "antd";
 import ChangeDateTicket from "../../../layout/listticket/changedate/ChangeDateTicket";
+import Pagination from "../../pagination/Pagination";
 
 const TableListTicket = () => {
   const today = new Date();
@@ -41,6 +42,18 @@ const TableListTicket = () => {
     setChangeTicket(true);
   };
   
+  const [curPage, setCurrentPage] = useState(1);
+  const [ticketPage, setTicketPage] = useState(12);
+  const indexOfLastcurrentPage = curPage * ticketPage;
+  const indexOfFirstcurrentPage = indexOfLastcurrentPage - ticketPage;
+  const curTicket = tickets.slice(
+    indexOfFirstcurrentPage,
+    indexOfLastcurrentPage
+  );
+
+  const paginate = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+  };
  
   return (
     <>
@@ -51,7 +64,7 @@ const TableListTicket = () => {
           css={override}
           size={150}
         />
-        {tickets.length > 0 ? (
+        {curTicket.length > 0 ? (
           <table className="listticket-list__table">
             <thead className="listticket-list__table__head">
               <tr>
@@ -71,7 +84,7 @@ const TableListTicket = () => {
               </tr>
             </thead>
             <tbody>
-              {tickets.map((item, index) => (
+              {curTicket.map((item, index) => (
                 <tr
                   key={index}
                   style={{ height: "48px" }}
@@ -164,6 +177,7 @@ const TableListTicket = () => {
           <h1 style={{ color: "red" }}>{error}</h1>
         )}
       </div>
+      <Pagination totalData={tickets.length} ticketPage={ticketPage} paginate= {paginate}  curPage={curPage}/>
       {changeTicket && (
         <Modal onCancel={() => setChangeTicket(false)} visible={changeTicket}>
           <ChangeDateTicket setChange={setChangeTicket} />

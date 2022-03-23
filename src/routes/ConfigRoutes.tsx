@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import Time from "../components/time/Time";
 import {
   CheckingTicket,
   IsCheckingTicket,
@@ -24,7 +25,7 @@ const configRoutes = () => {
         <Route path="/check/checked" element={<CheckingTicket />} />
         <Route path="/check/ischecked" element={<IsCheckingTicket />} />
       </Route>
-      <Route path='setting' element={<ListPackageTicket />} />
+      <Route path='/setting' element={<ListPackageTicket />} />
     </Routes>
   );
 };

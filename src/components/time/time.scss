@@ -1,0 +1,22 @@
+@use '../../scss/' as *;
+
+
+.modal {
+    position: absolute;
+}
+.layout{
+    position: absolute;
+    right: -70px;
+}
+.time {
+    @include flex (flex-start, space-between);
+    width: 370px;
+    height: 396px;
+    background: #fff;
+    box-shadow: 4px 4px 45px rgba(109, 46, 0, 0.35);
+    border-radius: 20px;
+    padding: 24px 32px;
+    position: relative;
+    z-index: 10;
+
+}

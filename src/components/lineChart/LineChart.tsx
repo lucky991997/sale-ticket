@@ -2,11 +2,7 @@ import React from "react";
 
 import { Line } from "react-chartjs-2";
 
-
-import {
-  Chart as ChartJS,
-  CategoryScale,
-} from "chart.js";
+import { Chart as ChartJS, CategoryScale } from "chart.js";
 
 import Chart from "chart.js/auto";
 
@@ -21,7 +17,7 @@ const LineChart = () => {
     "19/04 - 25/04",
     "26/04 - 02/05",
   ];
-  
+
   const data = {
     labels: date,
     datasets: [
@@ -30,7 +26,7 @@ const LineChart = () => {
         data: ["140", "180", "220", "260", "220"],
         fill: {
           target: "origin",
-          above: "rgba(250, 160, 95, 0.26)", 
+          above: "rgba(250, 160, 95, 0.26)",
           below: "rgba(255, 255, 255, 0)", // And blue below the origin
         },
         borderColor: "#ff993c",
@@ -47,12 +43,18 @@ const LineChart = () => {
       },
     },
   };
+
   return (
     <div className="linechart">
-      <div className="linechart__title">Doanh thu</div>
-      <Calendar placeholder="Tháng 4, 2021" />
+      <div className="ticketfilter-start-date">
+        <h1 className="linechart__title ">Doanh thu</h1>
+        <div className="ticketfilter-start-date__calendar">
+          <Calendar />
+        </div>
+      </div>
+
       <div className="linechart-chart">
-        <Line data={data} options={options} height={298} width={1488}/>
+        <Line data={data} options={options} height={298} width={1488} />
       </div>
     </div>
   );

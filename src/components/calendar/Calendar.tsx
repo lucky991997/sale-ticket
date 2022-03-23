@@ -1,33 +1,44 @@
-import React, { Component, CSSProperties, MouseEvent } from "react";
+import React, { Component, CSSProperties, MouseEvent, useEffect, useState } from "react";
 import { AiTwotoneCalendar } from "react-icons/ai";
 
 import "./calendar.scss";
+import { InputIcon } from "../input/Input";
+import { formatDate } from "../table/tableTicket/ListTicket";
+import Time from "../time/Time";
 
 type CalendarProps = {
-  calendarStyles?: CSSProperties;
   styles?: CSSProperties;
-  iconStyle?: CSSProperties;
-  placeholder?: string;
+  variant?: 'modal' | 'layout' 
 };
 
-const Calendar = ({
-  calendarStyles,
-  styles,
-  iconStyle,
-  placeholder,
-  ...rest
-}: CalendarProps) => {
+const Calendar = ({ styles, variant }: CalendarProps) => {
+  const [timeDate, setTimeDate] = useState(false);
+  const day = new Date();
+
+  const handleDatepicker = () => {
+    setTimeDate(true);
+  };
+
   return (
-    <div style={calendarStyles} className="calendar">
-      <input style={styles} placeholder={placeholder} />
-      <div className="calendar__icon">
-        <AiTwotoneCalendar style={iconStyle} className="icon" />
-      </div>
-    </div>
+    <>
+      <>
+        <InputIcon
+          styles={{ justifyContent: "flex-end" , }}
+          style={{ width: "155px" }}
+          handleClick={() => handleDatepicker()}
+          type="text"
+          placeholder={formatDate(day, "dd/mm/yy")}
+        >
+          <AiTwotoneCalendar
+            style={{ color: "#FF993C", width: "20px", height: "20px" }}
+          />
+        </InputIcon>
+      </>
+      {
+        timeDate === true && <Time variant = {`${variant === 'modal'? 'modal' : 'layout'}`} timeDate= {setTimeDate}/>
+      }
+    </>
   );
 };
 
-type TimeProps = {};
-
 export default Calendar;
-

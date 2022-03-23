@@ -1,0 +1,47 @@
+@use "../../scss/" as *;
+
+.pagination {
+  width: 228ox;
+  height: 20px;
+  text-align: center;
+  margin-top: 52px;
+  position: relative;
+  &-list {
+    @include flex(center, center);
+    &__item {
+      margin-right: 16px;
+      &__link {
+        border: none;
+        background-color: #fff;
+        cursor: pointer;
+        :hover {
+          opacity: 0.7;
+        }
+      }
+      span {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 17px;
+        color: $txt-black;
+        opacity: 0.7;
+        @include flex(center, static);
+      }
+    }
+  }
+}
+.active-pagination {
+  @include flex(center, center);
+  width: 24px;
+  height: 24px;
+  padding: 3px 7px 4px 8px;
+  border: 1px solid #ff993c;
+  border-radius: 4px;
+  span {
+    color: $txt-orange;
+  }
+}
+
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}

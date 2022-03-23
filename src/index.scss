@@ -52,6 +52,7 @@ img {
   width: 1567px;
   height: 963px;
   border-radius: 24px;
+  position: relative;
 }
 
 // tiêu đề của layout
@@ -168,5 +169,118 @@ input[type='radio'], input[type='checkbox'] {
 }
 //menu 
 .ant-menu-vertical, .ant-menu-vertical-left {
+  border: none !important;
+}
+// datePicker
+.ant-picker-header {
+  margin: 0 auto 18px 32px;
+  border: none !important; 
+  width: 182px;
+  height: 26px;
+  
+}
+.ant-picker-date-panel,
+.ant-picker-week-panel
+{
+  width: 370px !important;
+  background: transparent ;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  display: block;
+  position: absolute;
+  top: 50px;
+  right: 10%;
+}
+
+
+.ant-picker-header-super-next-btn,
+.ant-picker-header-super-prev-btn {
+  display: none;
+}
+.ant-picker-cell-week {
+
+  visibility: hidden !important;
+}
+.ant-picker-content {
+  height: 266px !important;
+  width: 340px !important;
+}
+
+.ant-picker-content th {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  color: $txt-orange !important;
+  margin-bottom: 16px;
+}
+
+.ant-picker-week-panel-row-selected td {
+  background: #ffd2a8 !important;
+}
+.ant-picker-week-panel-row-selected td:nth-child(2) {
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  position: relative;
+  &::after{
+    content: "";
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    background-color:#ffba7b;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+
+  }
+}
+.ant-picker-week-panel-row-selected td:nth-child(8) {
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  &::after{
+    content: "";
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    background-color:#ffba7b;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+
+  }
+}
+.ant-picker-cell-in-view.ant-picker-cell-today .ant-picker-cell-inner::before {
+  display: none;
+}
+.ant-picker-footer {
+  display: none;
+}
+
+// datapicker input
+.ant-picker-suffix {
+  color: $txt-orange !important;
+}
+.ant-picker-focused {
+  border-color: none !important;
+  box-shadow: none !important;
+  outline: none;
+}
+.ant-picker:hover {
+  border-color: #d9d9d9 !important;
+  box-shadow: none !important;
+}
+
+//day 
+.ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner {
+  border-radius: 50% !important;
+  background: #ffba7b !important;
+}
+
+
+
+.ant-picker-input {
+  display: none !important;
+}
+.ant-picker {
+  padding: 0 !important;
   border: none !important;
 }

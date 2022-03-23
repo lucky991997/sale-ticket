@@ -1,9 +1,10 @@
 @use "../../../scss/" as *;
 
 .listticket {
+  
   &-list {
     width: 1516px;
-    max-height: 635px;
+    min-height: 635px;
     overflow-y: hidden;
 
     &__table {

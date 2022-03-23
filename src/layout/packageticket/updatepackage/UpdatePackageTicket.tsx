@@ -14,12 +14,16 @@ import { Input, InputIcon } from "../../../components/input/Input";
 
 import "./updatepackageticket.scss";
 import { Ticket } from "../../../store/constant/types";
+import { formatDate } from "../../../components/table/tableTicket/ListTicket";
+import Calendar from "../../../components/calendar/Calendar";
 
 type UpdatePackageProps = {
   closeUpdate: any;
 };
 const UpdatePackageTicket = ({ closeUpdate }: UpdatePackageProps) => {
-  const { ticket, loading} = useSelector((state:RootState) => state.ticketReducer)
+  const { ticket, loading } = useSelector(
+    (state: RootState) => state.ticketReducer
+  );
 
   const override = css`
     text-align: center;
@@ -27,8 +31,8 @@ const UpdatePackageTicket = ({ closeUpdate }: UpdatePackageProps) => {
     margin: 0 auto;
   `;
   const color = "#f1f4f8";
-  const  data = ticket as Ticket
-  const time = new Date()
+  const data = ticket as Ticket;
+  const time = new Date();
 
   const handleCloseUpdate = () => {
     closeUpdate(false);
@@ -40,9 +44,7 @@ const UpdatePackageTicket = ({ closeUpdate }: UpdatePackageProps) => {
   };
 
   const { Option } = Select;
-  useEffect(() => {
-    
-  }, [ticket, loading]);
+  useEffect(() => {}, [ticket, loading]);
   return (
     <div className="updatepackage-ticket">
       <h1 className="title-layout">Cập nhật thông tin gói vé</h1>
@@ -64,27 +66,20 @@ const UpdatePackageTicket = ({ closeUpdate }: UpdatePackageProps) => {
             </div>
             <div className="updatepackage-ticket-event__name">
               <h2 style={{ marginBottom: "5px" }}>Tên sự kiện</h2>
-              <Input type="text" placeholder={data.event} value={data.event}  handleChange={(event) => console.log(event.target.value)}/>
+              <Input
+                type="text"
+                placeholder={data.event}
+                value={data.event}
+                handleChange={(event) => console.log(event.target.value)}
+              />
             </div>
           </div>
           <div className="updatepackage-ticket-date">
             <div className="updatepackage-ticket-date__start">
               <h2>Ngày áp dụng</h2>
               <div style={{ display: "flex" }}>
+                <Calendar variant='modal' />
                 <InputIcon
-                  handleClick={() => console.log("123")}
-                  style={{ marginRight: "9px" }}
-                  type="text"
-                  placeholder={data.useDate}
-                  value={data.useDate}
-                  handleChange={(event) => console.log(event.target.value)}
-                >
-                  <AiTwotoneCalendar
-                    style={{ color: "#FF993C", width: "20px", height: "20px" }}
-                  />
-                </InputIcon>
-
-                <InputIcon 
                   handleClick={() => console.log("123")}
                   handleChange={(event) => console.log(event.target.value)}
                   type="text"
@@ -100,18 +95,7 @@ const UpdatePackageTicket = ({ closeUpdate }: UpdatePackageProps) => {
             <div className="updatepackage-ticket-date__end">
               <h2>Ngày hết hạn</h2>
               <div style={{ display: "flex" }}>
-                <InputIcon
-                  handleClick={() => console.log("123")}
-                  style={{ marginRight: "9px" }}
-                  type="text"
-                  placeholder={data.startDate}
-                  handleChange={(event) => (event.target.value)}
-                  value={data.startDate}
-                >
-                  <AiTwotoneCalendar
-                    style={{ color: "#FF993C", width: "20px", height: "20px" }}
-                  />
-                </InputIcon>
+                <Calendar variant='modal' />
 
                 <InputIcon
                   handleClick={() => console.log("123")}

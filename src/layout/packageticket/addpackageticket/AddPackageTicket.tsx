@@ -6,6 +6,7 @@ import { Input, InputIcon } from "../../../components/input/Input";
 import { AiTwotoneCalendar, AiOutlineClockCircle } from "react-icons/ai";
 
 import "./addpackageticket.scss";
+import Calendar from "../../../components/calendar/Calendar";
 
 type AddTicketProps = {
   closeTicket: any;
@@ -37,16 +38,7 @@ const AddPackageTicket = ({ closeTicket }: AddTicketProps) => {
         <div className="addpackaege-ticket-date__start">
           <h2>Ngày áp dụng</h2>
           <div style={{ display: "flex" }}>
-            <InputIcon
-              handleClick={() => console.log(123)}
-              style={{ marginRight: "9px" }}
-              type="text"
-              placeholder={"dd/mm/yy"}
-            >
-              <AiTwotoneCalendar
-                style={{ color: "#FF993C", width: "20px", height: "20px" }}
-              />
-            </InputIcon>
+            <Calendar variant='modal'/>
 
             <InputIcon
               handleClick={() => console.log(123)}
@@ -62,16 +54,7 @@ const AddPackageTicket = ({ closeTicket }: AddTicketProps) => {
         <div className="addpackaege-ticket-date__end">
           <h2>Ngày hết hạn</h2>
           <div style={{ display: "flex" }}>
-            <InputIcon
-              handleClick={() => console.log(123)}
-              style={{ marginRight: "9px" }}
-              type="text"
-              placeholder={"dd/mm/yy"}
-            >
-              <AiTwotoneCalendar
-                style={{ color: "#FF993C", width: "20px", height: "20px" }}
-              />
-            </InputIcon>
+          <Calendar variant='modal' />
 
             <InputIcon
               handleClick={() => console.log(123)}

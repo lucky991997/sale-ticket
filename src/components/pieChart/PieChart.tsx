@@ -1,6 +1,4 @@
 import React from "react";
-import { AiTwotoneCalendar } from "react-icons/ai";
-
 import { Pie, Doughnut } from "react-chartjs-2";
 
 import "./piechart.scss";
@@ -29,12 +27,12 @@ const PieChart = () => {
   };
   return (
     <div className="piechart">
-      <div className="piechart-calendar">
-        <input placeholder="tháng 4 -2021" />
-        <div className="piechart-calendar__icon">
-          <AiTwotoneCalendar className="icon" />
+      <div style={{ marginLeft: "180px", right: "0" }}>
+        <div className="ticketfilter-start-date">
+          <div className="ticketfilter-start-date__calendar">
+            <Calendar variant='modal'/>
+          </div>
         </div>
-       
       </div>
       <div className="piechart-family">
         <h2 className="piechart-family__title">Gói Gia đình</h2>

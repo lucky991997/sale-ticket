@@ -8,45 +8,35 @@ import Calendar from "../../../components/calendar/Calendar";
 import "./filterticket.scss";
 
 const FilterTicket = () => {
+  const port = ["Cổng 1", "Cổng 2", "Cổng 3", "Cổng 4", "Cổng 5"];
   const [value, setValue] = useState(1);
   const [disable, setDisable] = useState(false);
-  const [checked, setChecked] = useState(true);
-  const port = ["Cổng 1", "Cổng 2", "Cổng 3", "Cổng 4", "Cổng 5"];
   const onChangeRadio = (e: any) => {
     setValue(e.target.value);
   };
-  const onChangeCheckbox = (e: any, index: number) => {
-    const { value } = e.target;
 
-  };
-  const onChangeCheckboxAll = (e:any) => {
-    if(e.target.checked) {
-      setChecked(true)
-      setDisable(true)
-    }else {
-      setDisable(false)
-      setChecked(false)
-
+  const onChangeCheckboxAll = (e: any) => {
+    if (e.target.checked) {
+      setDisable(true);
+    } else {
+      setDisable(false);
     }
- 
-  }
+  };
   return (
     <div className="filterticket">
       <h1 className="title-layout">Lọc vé</h1>
       <div className="filterticket-date">
         <div className="filterticket-date__start">
           <h2>Từ ngày</h2>
-          <Calendar
-            placeholder="01/04/2022"
-            calendarStyles={{ position: "relative" }}
-          />
+          <div>
+            <Calendar variant="modal" />
+          </div>
         </div>
         <div className="filterticket-date__end">
           <h2>Đến ngày</h2>
-          <Calendar
-            placeholder="01/04/2022"
-            calendarStyles={{ position: "relative" }}
-          />
+          <div>
+            <Calendar variant="modal" />
+          </div>
         </div>
       </div>
       <div className="filterticket-status">
@@ -105,16 +95,22 @@ const FilterTicket = () => {
           <Row>
             <Checkbox.Group style={{ width: "100%" }}>
               <Row>
-                <Checkbox value = '0' checked style={{ width: "190px" }} onChange={e => onChangeCheckboxAll(e)}>Tất cả</Checkbox>
+                <Checkbox
+                  value="0"
+                  checked
+                  style={{ width: "190px" }}
+                  onChange={(e) => onChangeCheckboxAll(e)}
+                >
+                  Tất cả
+                </Checkbox>
                 {port.length > 0 &&
                   port.map((item, index) => (
                     <Col span={8} key={index}>
-                      <Checkbox 
+                      <Checkbox
                         style={{ width: "100%" }}
                         disabled={disable}
-                        
                         value={index}
-                        onChange={(e) => onChangeCheckbox(e, index)}
+                        onChange={(e) => console.log(e.target.value)}
                       >
                         <span className="filterticket-check__check__title">
                           {item}

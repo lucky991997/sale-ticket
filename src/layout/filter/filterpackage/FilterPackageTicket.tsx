@@ -47,7 +47,7 @@ const TicketFilter = ({ component }: TicketFilterProps) => {
   const [index, setIndex] = useState<number | boolean>(0);
   const navigate = useNavigate();
   useEffect(() => {
-    setValue(component === -1 ? 0 : component); 
+    setValue(component === -1 ? 0 : component);
   }, [component, index, pathname, navigate]);
 
   const onChange = (e: any, index: number) => {
@@ -88,17 +88,14 @@ const TicketFilter = ({ component }: TicketFilterProps) => {
       <div className="ticketfilter-start-date">
         <h2>Từ ngày</h2>
         <div className="ticketfilter-start-date__calendar">
-          <Calendar
-            placeholder="01/05/2021"
-            styles={{ width: "192px", backgroundColor: "#E0E0E0" }}
-            iconStyle={{ color: "#A5Abb1" }}
-          />
+          <Calendar variant="layout" />
         </div>
       </div>
       <div className="ticketfilter-end-date">
         <h2>Đến ngày</h2>
         <div className="ticketfilter-end-date__calendar">
-          <Calendar placeholder="dd/mm/yy" styles={{ width: "192px" }} />
+      
+          <Calendar variant='layout'/>
         </div>
       </div>
       <div className="ticketfilter-btn">
@@ -106,7 +103,6 @@ const TicketFilter = ({ component }: TicketFilterProps) => {
           Lọc
         </Button>
       </div>
-
     </div>
   );
 };

@@ -49,10 +49,7 @@ const ChangeDateTicket = ( { setChange }: ChangeDateProps) => {
           <div className="changedateticket-date">
             <h2>Hạn sử dụng</h2>
             <div style={{ marginLeft: "96px" }}>
-              <Calendar
-                calendarStyles={{ position: "relative" }}
-                placeholder={data.startDate}
-              />
+              <Calendar variant='modal'/>
             </div>
           </div>
           <div className="btn-layout">

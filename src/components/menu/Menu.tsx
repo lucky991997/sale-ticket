@@ -37,6 +37,7 @@ const LeftMenu = () => {
       path: "/setting",
       icon: SettingOutlined,
     },
+   
   ];
 
   const { pathname } = useLocation();
