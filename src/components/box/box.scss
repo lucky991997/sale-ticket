@@ -1,0 +1,18 @@
+@use "../../scss/" as *;
+
+.box {
+  @include flex(center, center);
+  min-width: 66px;
+  min-height: 46px;
+  padding: 12px;
+  background: #ffffff;
+  box-shadow: 0px 0px 50px rgba(50, 50, 71, 0.25);
+  border-radius: 12px;
+  position: relative;
+  &-title {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 22px;
+      color: $txt-black;
+  }
+}

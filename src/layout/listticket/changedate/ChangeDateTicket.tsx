@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import Button from "../../../components/button/Button";
-import Calendar from "../../../components/calendar/Calendar";
 
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
 
 import "./changedateticket.scss";
 import { Ticket } from "../../../store/constant/types";
+import DatepickerTest from "../../../components/datePicker/DatePick";
 type ChangeDateProps = {
   setChange: any;
 
@@ -49,7 +49,7 @@ const ChangeDateTicket = ( { setChange }: ChangeDateProps) => {
           <div className="changedateticket-date">
             <h2>Hạn sử dụng</h2>
             <div style={{ marginLeft: "96px" }}>
-              <Calendar variant='modal'/>
+              <DatepickerTest/>
             </div>
           </div>
           <div className="btn-layout">

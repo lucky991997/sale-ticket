@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from "react";
-
 import { BiDotsVerticalRounded } from "react-icons/bi";
-
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../../store";
-
 import ClipLoader from "react-spinners/ClipLoader";
 import { css } from "@emotion/react";
-
 import Status from "../../status/Status";
 import "./listticket.scss";
 import { getTicket, showTicket } from "../../../store/actions/TicketAction";
@@ -17,7 +13,6 @@ import Pagination from "../../pagination/Pagination";
 
 const TableListTicket = () => {
   const today = new Date();
-
   //loading
   const override = css`
     display: block;
@@ -41,7 +36,7 @@ const TableListTicket = () => {
     dispatch(getTicket(id));
     setChangeTicket(true);
   };
-  
+  //set pagination 
   const [curPage, setCurrentPage] = useState(1);
   const [ticketPage, setTicketPage] = useState(12);
   const indexOfLastcurrentPage = curPage * ticketPage;
@@ -54,7 +49,7 @@ const TableListTicket = () => {
   const paginate = (pageNumber: number) => {
     setCurrentPage(pageNumber);
   };
- 
+
   return (
     <>
       <div className="listticket-list">
@@ -144,30 +139,36 @@ const TableListTicket = () => {
                     </span>
                   </td>
                   <td>
-                    <span>{item.port ? item.port : (
-                      <span style={{marginLeft: '20px'}}>_</span>
-                    )}</span>
+                    <span>
+                      {item.port ? (
+                        item.port
+                      ) : (
+                        <span style={{ marginLeft: "20px" }}>_</span>
+                      )}
+                    </span>
                   </td>
                   <td>
-                    <button
-                      style={{
-                        border: "none",
-                        background: "none",
-                        cursor: "pointer",
-                      }}
-                      onClick={() => {
-                        showChangeDate(item.code);
-                      }}
-                    >
-                      <BiDotsVerticalRounded
+                    {item.status === "open" && (
+                      <button
                         style={{
-                          color: "#1E0D03",
-                          width: "48px",
-                          height: "18px",
-                          opacity: "0.7",
+                          border: "none",
+                          background: "none",
+                          cursor: "pointer",
                         }}
-                      />
-                    </button>
+                        onClick={() => {
+                          showChangeDate(item.code);
+                        }}
+                      >
+                        <BiDotsVerticalRounded
+                          style={{
+                            color: "#1E0D03",
+                            width: "48px",
+                            height: "18px",
+                            opacity: "0.7",
+                          }}
+                        />
+                      </button>
+                    )}
                   </td>
                 </tr>
               ))}
@@ -177,7 +178,12 @@ const TableListTicket = () => {
           <h1 style={{ color: "red" }}>{error}</h1>
         )}
       </div>
-      <Pagination totalData={tickets.length} ticketPage={ticketPage} paginate= {paginate}  curPage={curPage}/>
+      <Pagination
+        totalData={tickets.length}
+        ticketPage={ticketPage}
+        paginate={paginate}
+        curPage={curPage}
+      />
       {changeTicket && (
         <Modal onCancel={() => setChangeTicket(false)} visible={changeTicket}>
           <ChangeDateTicket setChange={setChangeTicket} />

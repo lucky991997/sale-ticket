@@ -1,7 +1,7 @@
 import { BrowserRouter } from "react-router-dom";
 import moment from "moment";
 import Index from "./pages/Index";
-
+import DatePick from './components/datePicker/DatePick'
 function App() {
   moment.updateLocale("en", {
     week: {
@@ -27,6 +27,9 @@ function App() {
 
   return (
     <>
+      {/* <DatePick/> */}
+
+      
       <div style={{ backgroundColor: "#f9f6f4", width: "1920px" }}>
         <BrowserRouter>
           <Index />

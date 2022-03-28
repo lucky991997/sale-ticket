@@ -7,15 +7,14 @@ import BeatLoader from "react-spinners/BeatLoader";
 
 import { Select } from "antd";
 import Checkbox from "antd/lib/checkbox/Checkbox";
-import { AiOutlineClockCircle, AiTwotoneCalendar } from "react-icons/ai";
+import { AiOutlineClockCircle } from "react-icons/ai";
 
 import Button from "../../../components/button/Button";
 import { Input, InputIcon } from "../../../components/input/Input";
 
 import "./updatepackageticket.scss";
 import { Ticket } from "../../../store/constant/types";
-import { formatDate } from "../../../components/table/tableTicket/ListTicket";
-import Calendar from "../../../components/calendar/Calendar";
+import DatePickerTest from "../../../components/datePicker/DatePick";
 
 type UpdatePackageProps = {
   closeUpdate: any;
@@ -78,8 +77,9 @@ const UpdatePackageTicket = ({ closeUpdate }: UpdatePackageProps) => {
             <div className="updatepackage-ticket-date__start">
               <h2>Ngày áp dụng</h2>
               <div style={{ display: "flex" }}>
-                <Calendar variant='modal' />
+                <DatePickerTest />
                 <InputIcon
+                  style={{ marginLeft: "9px" }}
                   handleClick={() => console.log("123")}
                   handleChange={(event) => console.log(event.target.value)}
                   type="text"
@@ -95,9 +95,10 @@ const UpdatePackageTicket = ({ closeUpdate }: UpdatePackageProps) => {
             <div className="updatepackage-ticket-date__end">
               <h2>Ngày hết hạn</h2>
               <div style={{ display: "flex" }}>
-                <Calendar variant='modal' />
+                <DatePickerTest />
 
                 <InputIcon
+                  style={{ marginLeft: "9px" }}
                   handleClick={() => console.log("123")}
                   handleChange={(event) => console.log(event.target.value)}
                   type="text"

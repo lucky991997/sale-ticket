@@ -1,8 +1,9 @@
 import React from "react";
-import { Pie, Doughnut } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
 
 import "./piechart.scss";
-import Calendar from "../calendar/Calendar";
+import DatepickerTest from "../datePicker/DatePick";
+import Box from "../box/Box";
 
 const PieChart = () => {
   const dataFamily = {
@@ -25,12 +26,17 @@ const PieChart = () => {
       },
     ],
   };
+  const dataNumber = {
+    dataEvent: dataEvent.datasets[0].data,
+    dataFamily: dataFamily.datasets[0].data,
+  };
+
   return (
     <div className="piechart">
       <div style={{ marginLeft: "180px", right: "0" }}>
         <div className="ticketfilter-start-date">
           <div className="ticketfilter-start-date__calendar">
-            <Calendar variant='modal'/>
+            <DatepickerTest styles={{ left: "110%", top: "-160%" }} />
           </div>
         </div>
       </div>
@@ -38,6 +44,19 @@ const PieChart = () => {
         <h2 className="piechart-family__title">Gói Gia đình</h2>
         <div className="piechart-family__chart">
           <Doughnut data={dataFamily} />
+          {dataNumber.dataFamily.map((item, index) => (
+            <div key={index}>
+              {index === 0 ? (
+                <Box styles={{ position: "absolute", right: 0, top: "10%" }}>
+                  {item}
+                </Box>
+              ) : (
+                <Box styles={{ position: "absolute", left: 0, top: "50%" }}>
+                  {item}
+                </Box>
+              )}
+            </div>
+          ))}
         </div>
       </div>
 
@@ -45,6 +64,19 @@ const PieChart = () => {
         <h2 className="piechart-event__title">Gói Sự Kiện</h2>
         <div className="piechart-event__chart">
           <Doughnut data={dataEvent} />
+          {dataNumber.dataEvent.map((item, index) => (
+            <div key={index}>
+              {index === 0 ? (
+                <Box styles={{ position: "absolute", right: 0, top: "50%" }}>
+                  {item}
+                </Box>
+              ) : (
+                <Box styles={{ position: "absolute", left: 0, top: "50%" }}>
+                  {item}
+                </Box>
+              )}
+            </div>
+          ))}
         </div>
       </div>
       <div className="piechart-values">

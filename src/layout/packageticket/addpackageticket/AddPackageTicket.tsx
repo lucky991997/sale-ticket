@@ -3,10 +3,11 @@ import { Checkbox, Select } from "antd";
 
 import Button from "../../../components/button/Button";
 import { Input, InputIcon } from "../../../components/input/Input";
-import { AiTwotoneCalendar, AiOutlineClockCircle } from "react-icons/ai";
+import {  AiOutlineClockCircle } from "react-icons/ai";
 
 import "./addpackageticket.scss";
-import Calendar from "../../../components/calendar/Calendar";
+import DatepickerTest from "../../../components/datePicker/DatePick";
+
 
 type AddTicketProps = {
   closeTicket: any;
@@ -38,7 +39,7 @@ const AddPackageTicket = ({ closeTicket }: AddTicketProps) => {
         <div className="addpackaege-ticket-date__start">
           <h2>Ngày áp dụng</h2>
           <div style={{ display: "flex" }}>
-            <Calendar variant='modal'/>
+            <DatepickerTest />
 
             <InputIcon
               handleClick={() => console.log(123)}
@@ -54,7 +55,7 @@ const AddPackageTicket = ({ closeTicket }: AddTicketProps) => {
         <div className="addpackaege-ticket-date__end">
           <h2>Ngày hết hạn</h2>
           <div style={{ display: "flex" }}>
-          <Calendar variant='modal' />
+          <DatepickerTest />
 
             <InputIcon
               handleClick={() => console.log(123)}
@@ -84,7 +85,7 @@ const AddPackageTicket = ({ closeTicket }: AddTicketProps) => {
           <span className="label-title">/ vé</span>
         </div>
         <div className="addpackaege-ticket-price__combo">
-          <Checkbox>
+          <Checkbox >
             <span style={{ margin: 0 }} className="label-title">
               Combo vé với giá
             </span>
@@ -112,7 +113,7 @@ const AddPackageTicket = ({ closeTicket }: AddTicketProps) => {
         >
           {status.length > 0 &&
             status.map((item, index) => (
-              <Option key={index} value={item}>
+              <Option style={{color:'orange'}} key={index} value={item}>
                 <span className="label-title">{item}</span>
               </Option>
             ))}

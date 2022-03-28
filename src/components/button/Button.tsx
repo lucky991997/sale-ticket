@@ -11,7 +11,7 @@ type ButtonProps = {
 const Button = ({ variant, children, size, ...rest }: ButtonProps) => {
   return (
     <button  className={`btn-${variant} btn-${size}`} {...rest}>
-      <span>{children}</span>
+      <span >{children}</span>
     </button>
   );
 };

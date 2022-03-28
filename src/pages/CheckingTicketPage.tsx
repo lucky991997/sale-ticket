@@ -17,9 +17,6 @@ const CheckingTicketPage = () => {
 
   const component = components.findIndex((item) => item === pathname);
 
-  // const components = ["listcheck", "checked", "ischecked"];
-  // const component = components.find((item) => item === path);
-
   const handleChecking = () => {
     if (component === 1) {
       return <CheckingTicket />;

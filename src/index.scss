@@ -4,7 +4,7 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box  ;
+  box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
 }
@@ -43,7 +43,7 @@ img {
   color: $txt-black;
 }
 
-// layout 
+// layout
 .main-layout {
   padding-top: 24px;
   padding-left: 24px;
@@ -51,6 +51,7 @@ img {
   background-color: $main-color;
   width: 1567px;
   height: 963px;
+
   border-radius: 24px;
   position: relative;
 }
@@ -64,14 +65,12 @@ img {
   text-align: center;
 }
 
-
 //khoảng cách button của layout
 .btn-layout {
   display: flex;
   justify-content: center;
   div:nth-child(2) {
     margin-left: 24px;
-
   }
 }
 
@@ -86,7 +85,7 @@ img {
   line-height: 26px;
 }
 
-.note-title{
+.note-title {
   font-weight: 400;
   font-size: 12px;
   line-height: 15px;
@@ -94,10 +93,9 @@ img {
   opacity: 0.4;
   margin-left: 4px;
   margin-top: 2px;
-
 }
 
-//label title 
+//label title
 .label-title {
   font-weight: 500;
   font-size: 16px;
@@ -106,8 +104,6 @@ img {
   opacity: 0.7;
   margin: 0 8px;
 }
-
-
 
 // radio antd
 
@@ -121,9 +117,9 @@ img {
   border-color: #1890ff;
   width: 24px !important;
   height: 24px !important;
-  
 }
-input[type='radio'], input[type='checkbox'] {
+input[type="radio"],
+input[type="checkbox"] {
   box-sizing: border-box;
   width: 24px;
   padding: 0;
@@ -141,7 +137,7 @@ input[type='radio'], input[type='checkbox'] {
   line-height: 20px;
   font-weight: 500;
   opacity: 0.7;
-  color: #1E0D03;
+  color: #1e0d03;
   position: absolute;
   top: 4px;
 }
@@ -164,26 +160,25 @@ input[type='radio'], input[type='checkbox'] {
 }
 .ant-checkbox-inner,
 .ant-checkbox-input {
-  width: 20px ;
-  height: 20px ;
+  width: 20px;
+  height: 20px;
 }
-//menu 
-.ant-menu-vertical, .ant-menu-vertical-left {
+//menu
+.ant-menu-vertical,
+.ant-menu-vertical-left {
   border: none !important;
 }
 // datePicker
 .ant-picker-header {
   margin: 0 auto 18px 32px;
-  border: none !important; 
+  border: none !important;
   width: 182px;
   height: 26px;
-  
 }
 .ant-picker-date-panel,
-.ant-picker-week-panel
-{
+.ant-picker-week-panel {
   width: 370px !important;
-  background: transparent ;
+  background: transparent;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   display: block;
@@ -192,13 +187,11 @@ input[type='radio'], input[type='checkbox'] {
   right: 10%;
 }
 
-
 .ant-picker-header-super-next-btn,
 .ant-picker-header-super-prev-btn {
   display: none;
 }
 .ant-picker-cell-week {
-
   visibility: hidden !important;
 }
 .ant-picker-content {
@@ -221,31 +214,29 @@ input[type='radio'], input[type='checkbox'] {
   border-top-left-radius: 50%;
   border-bottom-left-radius: 50%;
   position: relative;
-  &::after{
+  &::after {
     content: "";
     width: 40px;
     height: 40px;
     position: absolute;
-    background-color:#ffba7b;
+    background-color: #ffba7b;
     border-radius: 50%;
     top: 0;
     left: 0;
-
   }
 }
 .ant-picker-week-panel-row-selected td:nth-child(8) {
   border-top-right-radius: 50%;
   border-bottom-right-radius: 50%;
-  &::after{
+  &::after {
     content: "";
     width: 40px;
     height: 40px;
     position: absolute;
-    background-color:#ffba7b;
+    background-color: #ffba7b;
     border-radius: 50%;
     top: 0;
     left: 0;
-
   }
 }
 .ant-picker-cell-in-view.ant-picker-cell-today .ant-picker-cell-inner::before {
@@ -269,13 +260,11 @@ input[type='radio'], input[type='checkbox'] {
   box-shadow: none !important;
 }
 
-//day 
+//day
 .ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner {
   border-radius: 50% !important;
   background: #ffba7b !important;
 }
-
-
 
 .ant-picker-input {
   display: none !important;
@@ -284,3 +273,12 @@ input[type='radio'], input[type='checkbox'] {
   padding: 0 !important;
   border: none !important;
 }
+// select arrow
+.ant-select-arrow {
+  color: orange !important;
+}
+
+//set color of checkbox
+// .ant-checkbox-inner {
+//   border: 2px solid #27Aef9 !important;
+// }

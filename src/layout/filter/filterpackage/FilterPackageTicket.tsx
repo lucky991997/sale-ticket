@@ -2,10 +2,10 @@ import React, { useEffect, useRef, useState } from "react";
 import { Select, Radio, Space } from "antd";
 
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import Calendar from "../../../components/calendar/Calendar";
 import Button from "../../../components/button/Button";
 
 import "./filterpackageticket.scss";
+import DatepickerTest from "../../../components/datePicker/DatePick";
 
 type TicketFilterProps = {
   component: number;
@@ -88,14 +88,13 @@ const TicketFilter = ({ component }: TicketFilterProps) => {
       <div className="ticketfilter-start-date">
         <h2>Từ ngày</h2>
         <div className="ticketfilter-start-date__calendar">
-          <Calendar variant="layout" />
+          <DatepickerTest styleIcon={{color:'#A5A8B1'}} styleInput={{backgroundColor:'#E0E0E0'}} styles={{right: 0}} />
         </div>
       </div>
       <div className="ticketfilter-end-date">
         <h2>Đến ngày</h2>
         <div className="ticketfilter-end-date__calendar">
-      
-          <Calendar variant='layout'/>
+          <DatepickerTest styleInput={{backgroundColor:'#F7F8FB'}} styles={{right: 0}} />
         </div>
       </div>
       <div className="ticketfilter-btn">

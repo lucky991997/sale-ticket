@@ -1,13 +1,10 @@
 @use "../../scss/" as *;
 
 .piechart {
-  margin-top: 83px;
-  // position: relative;
+  margin-top: 205px;
   display: flex;
+  position: relative;
   &-calendar {
-    // position: absolute;
-    // left: 8px;
-    // top: 0;
     position: relative;
     margin-left: 8px;
 
@@ -72,6 +69,7 @@
       color: $txt-black;
     }
     &__chart {
+      position: relative;
       margin-left: 5px;
       height: 262px;
       width: 262px;
@@ -86,7 +84,7 @@
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
-
+    position: relative;
     &__title {
       margin: 0;
       margin-bottom: 8px;
@@ -114,7 +112,7 @@
         border-radius: 4px;
       }
 
-      &__title{
+      &__title {
         margin: 0;
         font-style: normal;
         font-size: 14px;
@@ -122,7 +120,6 @@
         font-weight: 400;
         color: $txt-black;
       }
-      
     }
 
     &__not-use {
@@ -134,7 +131,7 @@
         background-color: $chart-orange;
         border-radius: 4px;
       }
-      &__title{
+      &__title {
         margin: 0;
         font-style: normal;
         font-size: 14px;

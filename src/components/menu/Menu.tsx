@@ -61,8 +61,8 @@ const LeftMenu = () => {
         <Link to="/home">
           <img
             className="menus__logo__image"
-            src="../../../../images/logo.png"
-            alt="home"
+            src="../../../../images/logo.PNG"
+            alt="insight"
           />
         </Link>
       </div>

@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import { Radio, Checkbox, Row, Col, Space } from "antd";
 
 import Button from "../../../components/button/Button";
-import Calendar from "../../../components/calendar/Calendar";
 
 import "./filterticket.scss";
+import DatepickerTest from "../../../components/datePicker/DatePick";
 
 const FilterTicket = () => {
   const port = ["Cổng 1", "Cổng 2", "Cổng 3", "Cổng 4", "Cổng 5"];
@@ -29,13 +29,13 @@ const FilterTicket = () => {
         <div className="filterticket-date__start">
           <h2>Từ ngày</h2>
           <div>
-            <Calendar variant="modal" />
+            <DatepickerTest/>
           </div>
         </div>
         <div className="filterticket-date__end">
           <h2>Đến ngày</h2>
           <div>
-            <Calendar variant="modal" />
+            <DatepickerTest/>
           </div>
         </div>
       </div>

@@ -2,24 +2,17 @@ import React, { useState } from "react";
 import { FiFilter } from "react-icons/fi";
 import { InputSearch } from "../../components/input/Input";
 import { Modal } from "antd";
-
-
-
 import Button from "../../components/button/Button";
 import FilterTicket from "../filter/filterTicket/FilterTicket";
-import ChangeDateTicket from "./changedate/ChangeDateTicket";
-
 import "./listticket.scss";
 import TableListTicket from "../../components/table/tableTicket/ListTicket";
-
 const ListTicket = () => {
   const [filterTicket, setFilterTicket] = useState(false);
-
 
   const showfilter = () => {
     setFilterTicket(true);
   };
- 
+
   return (
     <div className="main-layout">
       <div className="listticket">
@@ -37,7 +30,6 @@ const ListTicket = () => {
               Lọc vé
             </Button>
             <Button
-             
               style={{ minWidth: "184px", marginLeft: "12px" }}
               variant="secondary"
               size="XL"
@@ -46,16 +38,18 @@ const ListTicket = () => {
             </Button>
           </div>
         </div>
-       
-        <TableListTicket/>
+
+        <TableListTicket />
       </div>
       {filterTicket && (
-        <Modal style={{padding:'10px'}} onCancel={() => setFilterTicket(false)} visible={filterTicket}>
+        <Modal
+          style={{ padding: "10px" }}
+          onCancel={() => setFilterTicket(false)}
+          visible={filterTicket}
+        >
           <FilterTicket />
         </Modal>
       )}
-
-   
     </div>
   );
 };
